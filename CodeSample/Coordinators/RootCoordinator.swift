@@ -8,7 +8,15 @@
 import SwiftUI
 import UIKit
 
-final class RootCoordinator: Coordinator {
+enum RootDestination {
+    case login
+}
+
+protocol RootCoordinating {
+    func coordinate(to destination: RootDestination)
+}
+
+final class RootCoordinator: Coordinator, RootCoordinating {
     private let rootController: UIViewController
     
     private let alwaysStoredNavigationController = UINavigationController()
@@ -26,9 +34,13 @@ final class RootCoordinator: Coordinator {
     
     func start() {
         rootController.addChildController(
-            UIHostingController(rootView: viewFactory.buildLoginView())
+            UIHostingController(rootView: viewFactory.buildRootView())
         )
         guard let navigationController else { return }
         navigationController.navigationBar.isHidden = true
+    }
+    
+    func coordinate(to destination: RootDestination) {
+        //TODO: Root coordinating
     }
 }

@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "valet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/square/Valet.git",
+      "state" : {
+        "revision" : "3df8eaa90e1fa0d80830733cdc3c9e098146af3d",
+        "version" : "4.3.0"
+      }
+    }
+  ],
+  "version" : 2
+}

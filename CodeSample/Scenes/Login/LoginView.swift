@@ -44,6 +44,7 @@ struct LoginView: View {
             Image("testio")
             Image("testio_dot")
         }
+        .frame(width: 186, height: 48)
     }
     
     private var backgroundView: some View {
@@ -80,6 +81,7 @@ private struct LoginTextField: View {
             switch purpose {
             case .username:
                 Image("user_icon")
+                    .frame(width: 16, height: 16)
                 TextField(text: $text) {
                     Text("Username")
                         .font(.system(size: 17))
@@ -89,6 +91,7 @@ private struct LoginTextField: View {
                 }
             case .password:
                 Image("lock_icon")
+                    .frame(width: 16, height: 16)
                 SecureField(text: $text) {
                     Text("Password")
                         .font(.system(size: 17))

@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E70EA9772C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA9762C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift */; };
+		E70EA97A2C6CE83E00D25AFC /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA9792C6CE83E00D25AFC /* NetworkClient.swift */; };
+		E70EA97D2C6CE86B00D25AFC /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA97C2C6CE86B00D25AFC /* Resource.swift */; };
+		E70EA97F2C6CE91900D25AFC /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA97E2C6CE91900D25AFC /* NetworkSession.swift */; };
+		E70EA9812C6CEA6100D25AFC /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA9802C6CEA6100D25AFC /* RequestBuilder.swift */; };
+		E70EA9862C6CEAF500D25AFC /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA9852C6CEAF500D25AFC /* Keychain.swift */; };
+		E70EA9892C6CEBB200D25AFC /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = E70EA9882C6CEBB200D25AFC /* Valet */; };
+		E70EA98B2C6CEC8A00D25AFC /* JSONEncoder+toSnakeCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA98A2C6CEC8A00D25AFC /* JSONEncoder+toSnakeCase.swift */; };
+		E70EA98D2C6CECA300D25AFC /* JSONDecoder+fromSnakeCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA98C2C6CECA300D25AFC /* JSONDecoder+fromSnakeCase.swift */; };
 		E77CCDAF2C6CB35800CF764E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDAE2C6CB35800CF764E /* LoginView.swift */; };
 		E77CCDB12C6CB35900CF764E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E77CCDB02C6CB35900CF764E /* Assets.xcassets */; };
 		E77CCDB42C6CB35900CF764E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E77CCDB32C6CB35900CF764E /* Preview Assets.xcassets */; };
@@ -20,10 +28,22 @@
 		E77CCDCD2C6CDB4000CF764E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDCC2C6CDB4000CF764E /* LoginViewModel.swift */; };
 		E77CCDCF2C6CDCFD00CF764E /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDCE2C6CDCFD00CF764E /* LoginInteractor.swift */; };
 		E77CCDD12C6CDEEF00CF764E /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDD02C6CDEEF00CF764E /* AsyncButton.swift */; };
+		E7FDA1302C6D0E4C006E67F1 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA12F2C6D0E4C006E67F1 /* NetworkError.swift */; };
+		E7FDA1332C6D1554006E67F1 /* ObtainBearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1322C6D1554006E67F1 /* ObtainBearer.swift */; };
+		E7FDA1382C6D18A5006E67F1 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1372C6D18A5006E67F1 /* RootView.swift */; };
+		E7FDA13A2C6D1926006E67F1 /* ViewFactory+buildRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1392C6D1926006E67F1 /* ViewFactory+buildRootView.swift */; };
+		E7FDA13C2C6D1984006E67F1 /* RootViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA13B2C6D1984006E67F1 /* RootViewInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E70EA9762C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewFactory+buildLoginView.swift"; sourceTree = "<group>"; };
+		E70EA9792C6CE83E00D25AFC /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		E70EA97C2C6CE86B00D25AFC /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		E70EA97E2C6CE91900D25AFC /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		E70EA9802C6CEA6100D25AFC /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		E70EA9852C6CEAF500D25AFC /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		E70EA98A2C6CEC8A00D25AFC /* JSONEncoder+toSnakeCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+toSnakeCase.swift"; sourceTree = "<group>"; };
+		E70EA98C2C6CECA300D25AFC /* JSONDecoder+fromSnakeCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+fromSnakeCase.swift"; sourceTree = "<group>"; };
 		E77CCDA92C6CB35800CF764E /* CodeSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77CCDAE2C6CB35800CF764E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E77CCDB02C6CB35900CF764E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +58,11 @@
 		E77CCDCC2C6CDB4000CF764E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E77CCDCE2C6CDCFD00CF764E /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		E77CCDD02C6CDEEF00CF764E /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
+		E7FDA12F2C6D0E4C006E67F1 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		E7FDA1322C6D1554006E67F1 /* ObtainBearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainBearer.swift; sourceTree = "<group>"; };
+		E7FDA1372C6D18A5006E67F1 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		E7FDA1392C6D1926006E67F1 /* ViewFactory+buildRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewFactory+buildRootView.swift"; sourceTree = "<group>"; };
+		E7FDA13B2C6D1984006E67F1 /* RootViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,12 +70,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E70EA9892C6CEBB200D25AFC /* Valet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E70EA9782C6CE83600D25AFC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E70EA97B2C6CE86300D25AFC /* Resources */,
+				E70EA9792C6CE83E00D25AFC /* NetworkClient.swift */,
+				E70EA97E2C6CE91900D25AFC /* NetworkSession.swift */,
+				E70EA9802C6CEA6100D25AFC /* RequestBuilder.swift */,
+				E7FDA12F2C6D0E4C006E67F1 /* NetworkError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E70EA97B2C6CE86300D25AFC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E70EA97C2C6CE86B00D25AFC /* Resource.swift */,
+				E7FDA1322C6D1554006E67F1 /* ObtainBearer.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E70EA9842C6CEAEE00D25AFC /* Storing */ = {
+			isa = PBXGroup;
+			children = (
+				E70EA9852C6CEAF500D25AFC /* Keychain.swift */,
+			);
+			path = Storing;
+			sourceTree = "<group>";
+		};
 		E77CCDA02C6CB35800CF764E = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +125,8 @@
 		E77CCDAB2C6CB35800CF764E /* CodeSample */ = {
 			isa = PBXGroup;
 			children = (
+				E70EA9842C6CEAEE00D25AFC /* Storing */,
+				E70EA9782C6CE83600D25AFC /* Networking */,
 				E77CCDBE2C6CB3C300CF764E /* Coordinators */,
 				E77CCDBD2C6CB3BC00CF764E /* Dependencies */,
 				E77CCDBC2C6CB3B700CF764E /* Extensions */,
@@ -93,6 +150,7 @@
 		E77CCDBB2C6CB3B400CF764E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E7FDA1362C6D189D006E67F1 /* Root */,
 				E77CCDCB2C6CDB3700CF764E /* Login */,
 			);
 			path = Scenes;
@@ -102,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				E77CCDC72C6CB4AC00CF764E /* UIViewController+addChildController.swift */,
+				E70EA98A2C6CEC8A00D25AFC /* JSONEncoder+toSnakeCase.swift */,
+				E70EA98C2C6CECA300D25AFC /* JSONDecoder+fromSnakeCase.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -136,6 +196,16 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		E7FDA1362C6D189D006E67F1 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E7FDA1372C6D18A5006E67F1 /* RootView.swift */,
+				E7FDA1392C6D1926006E67F1 /* ViewFactory+buildRootView.swift */,
+				E7FDA13B2C6D1984006E67F1 /* RootViewInteractor.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +222,9 @@
 			dependencies = (
 			);
 			name = CodeSample;
+			packageProductDependencies = (
+				E70EA9882C6CEBB200D25AFC /* Valet */,
+			);
 			productName = CodeSample;
 			productReference = E77CCDA92C6CB35800CF764E /* CodeSample.app */;
 			productType = "com.apple.product-type.application";
@@ -180,6 +253,9 @@
 				Base,
 			);
 			mainGroup = E77CCDA02C6CB35800CF764E;
+			packageReferences = (
+				E70EA9872C6CEBB200D25AFC /* XCRemoteSwiftPackageReference "Valet" */,
+			);
 			productRefGroup = E77CCDAA2C6CB35800CF764E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -206,17 +282,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E70EA9862C6CEAF500D25AFC /* Keychain.swift in Sources */,
+				E7FDA1382C6D18A5006E67F1 /* RootView.swift in Sources */,
+				E70EA9812C6CEA6100D25AFC /* RequestBuilder.swift in Sources */,
+				E70EA97D2C6CE86B00D25AFC /* Resource.swift in Sources */,
 				E70EA9772C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift in Sources */,
 				E77CCDCA2C6CB8E700CF764E /* AppDelegate.swift in Sources */,
 				E77CCDC02C6CB3D700CF764E /* AppDependencies.swift in Sources */,
 				E77CCDAF2C6CB35800CF764E /* LoginView.swift in Sources */,
+				E70EA98D2C6CECA300D25AFC /* JSONDecoder+fromSnakeCase.swift in Sources */,
+				E7FDA1302C6D0E4C006E67F1 /* NetworkError.swift in Sources */,
 				E77CCDC42C6CB46B00CF764E /* Coordinator.swift in Sources */,
 				E77CCDCD2C6CDB4000CF764E /* LoginViewModel.swift in Sources */,
+				E70EA97F2C6CE91900D25AFC /* NetworkSession.swift in Sources */,
+				E7FDA13A2C6D1926006E67F1 /* ViewFactory+buildRootView.swift in Sources */,
 				E77CCDC62C6CB48E00CF764E /* RootCoordinator.swift in Sources */,
 				E77CCDD12C6CDEEF00CF764E /* AsyncButton.swift in Sources */,
 				E77CCDC22C6CB3E700CF764E /* ViewFactory.swift in Sources */,
+				E70EA98B2C6CEC8A00D25AFC /* JSONEncoder+toSnakeCase.swift in Sources */,
 				E77CCDC82C6CB4AC00CF764E /* UIViewController+addChildController.swift in Sources */,
+				E7FDA13C2C6D1984006E67F1 /* RootViewInteractor.swift in Sources */,
 				E77CCDCF2C6CDCFD00CF764E /* LoginInteractor.swift in Sources */,
+				E7FDA1332C6D1554006E67F1 /* ObtainBearer.swift in Sources */,
+				E70EA97A2C6CE83E00D25AFC /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +510,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E70EA9872C6CEBB200D25AFC /* XCRemoteSwiftPackageReference "Valet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/square/Valet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E70EA9882C6CEBB200D25AFC /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E70EA9872C6CEBB200D25AFC /* XCRemoteSwiftPackageReference "Valet" */;
+			productName = Valet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E77CCDA12C6CB35800CF764E /* Project object */;
 }
