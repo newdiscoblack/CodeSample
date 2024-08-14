@@ -7,18 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E77CCDAD2C6CB35800CF764E /* CodeSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDAC2C6CB35800CF764E /* CodeSampleApp.swift */; };
 		E77CCDAF2C6CB35800CF764E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDAE2C6CB35800CF764E /* ContentView.swift */; };
 		E77CCDB12C6CB35900CF764E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E77CCDB02C6CB35900CF764E /* Assets.xcassets */; };
 		E77CCDB42C6CB35900CF764E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E77CCDB32C6CB35900CF764E /* Preview Assets.xcassets */; };
+		E77CCDC02C6CB3D700CF764E /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDBF2C6CB3D700CF764E /* AppDependencies.swift */; };
+		E77CCDC22C6CB3E700CF764E /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDC12C6CB3E700CF764E /* ViewFactory.swift */; };
+		E77CCDC42C6CB46B00CF764E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDC32C6CB46B00CF764E /* Coordinator.swift */; };
+		E77CCDC62C6CB48E00CF764E /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDC52C6CB48E00CF764E /* RootCoordinator.swift */; };
+		E77CCDC82C6CB4AC00CF764E /* UIViewController+addChildController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDC72C6CB4AC00CF764E /* UIViewController+addChildController.swift */; };
+		E77CCDCA2C6CB8E700CF764E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDC92C6CB8E700CF764E /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E77CCDA92C6CB35800CF764E /* CodeSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E77CCDAC2C6CB35800CF764E /* CodeSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSampleApp.swift; sourceTree = "<group>"; };
 		E77CCDAE2C6CB35800CF764E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E77CCDB02C6CB35900CF764E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E77CCDB32C6CB35900CF764E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E77CCDBA2C6CB3AE00CF764E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E77CCDBF2C6CB3D700CF764E /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		E77CCDC12C6CB3E700CF764E /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
+		E77CCDC32C6CB46B00CF764E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E77CCDC52C6CB48E00CF764E /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		E77CCDC72C6CB4AC00CF764E /* UIViewController+addChildController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+addChildController.swift"; sourceTree = "<group>"; };
+		E77CCDC92C6CB8E700CF764E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +62,15 @@
 		E77CCDAB2C6CB35800CF764E /* CodeSample */ = {
 			isa = PBXGroup;
 			children = (
-				E77CCDAC2C6CB35800CF764E /* CodeSampleApp.swift */,
+				E77CCDBE2C6CB3C300CF764E /* Coordinators */,
+				E77CCDBD2C6CB3BC00CF764E /* Dependencies */,
+				E77CCDBC2C6CB3B700CF764E /* Extensions */,
+				E77CCDBB2C6CB3B400CF764E /* Scenes */,
+				E77CCDBA2C6CB3AE00CF764E /* Info.plist */,
 				E77CCDAE2C6CB35800CF764E /* ContentView.swift */,
 				E77CCDB02C6CB35900CF764E /* Assets.xcassets */,
 				E77CCDB22C6CB35900CF764E /* Preview Content */,
+				E77CCDC92C6CB8E700CF764E /* AppDelegate.swift */,
 			);
 			path = CodeSample;
 			sourceTree = "<group>";
@@ -65,6 +81,39 @@
 				E77CCDB32C6CB35900CF764E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E77CCDBB2C6CB3B400CF764E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E77CCDBC2C6CB3B700CF764E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E77CCDC72C6CB4AC00CF764E /* UIViewController+addChildController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E77CCDBD2C6CB3BC00CF764E /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				E77CCDBF2C6CB3D700CF764E /* AppDependencies.swift */,
+				E77CCDC12C6CB3E700CF764E /* ViewFactory.swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		E77CCDBE2C6CB3C300CF764E /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				E77CCDC32C6CB46B00CF764E /* Coordinator.swift */,
+				E77CCDC52C6CB48E00CF764E /* RootCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +186,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E77CCDCA2C6CB8E700CF764E /* AppDelegate.swift in Sources */,
+				E77CCDC02C6CB3D700CF764E /* AppDependencies.swift in Sources */,
 				E77CCDAF2C6CB35800CF764E /* ContentView.swift in Sources */,
-				E77CCDAD2C6CB35800CF764E /* CodeSampleApp.swift in Sources */,
+				E77CCDC42C6CB46B00CF764E /* Coordinator.swift in Sources */,
+				E77CCDC62C6CB48E00CF764E /* RootCoordinator.swift in Sources */,
+				E77CCDC22C6CB3E700CF764E /* ViewFactory.swift in Sources */,
+				E77CCDC82C6CB4AC00CF764E /* UIViewController+addChildController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +329,7 @@
 				DEVELOPMENT_TEAM = ZVP65B2B4J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = CodeSample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -304,7 +358,7 @@
 				DEVELOPMENT_TEAM = ZVP65B2B4J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = CodeSample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
