@@ -26,16 +26,9 @@ final class RootCoordinator: Coordinator {
     
     func start() {
         rootController.addChildController(
-            UIHostingController(rootView: viewFactory.buildContentView())
+            UIHostingController(rootView: viewFactory.buildLoginView())
         )
         guard let navigationController else { return }
         navigationController.navigationBar.isHidden = true
-        rootController.addChildController(navigationController)
-    }
-}
-
-extension ViewFactory {
-    @ViewBuilder func buildContentView() -> some View {
-        ContentView()
     }
 }
