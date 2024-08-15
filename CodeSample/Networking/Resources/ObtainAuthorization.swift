@@ -1,5 +1,5 @@
 //
-//  ObtainBearer.swift
+//  ObtainAuthorization.swift
 //  CodeSample
 //
 //  Created by Kacper Jagiełło on 14/08/2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ObtainBearer: Resource {
+struct ObtainAuthorization: Resource {
     let path: String = "v1/tokens"
     let httpRequestMethod: RequestMethod = .POST
     let body: Data?
@@ -23,10 +23,3 @@ struct ObtainBearer: Resource {
         )
     }
 }
-
-/*
- To generate authorization token, send POST request to
- https://playground.nordsec.com/v1/tokens.
- Request body:
- {"username": "tesonet", "password": "partyanimal"}
- */

@@ -9,36 +9,49 @@ import Foundation
 
 protocol RequestBuilding {
     func buildUrlRequest<R: Resource>(
-        for resource: R,
-        using authorizationProvider: AuthorizationProviding
+        for resource: R
     ) async throws -> URLRequest
 }
 
 final class RequestBuilder: RequestBuilding {
     private let host: String
+    private let keychain: KeychainStoring
     
-    init(host: String) {
+    init(
+        host: String,
+        keychain: KeychainStoring
+    ) {
         self.host = host
+        self.keychain = keychain
     }
     
     func buildUrlRequest<R: Resource>(
-        for resource: R,
-        using authorizationProvider: AuthorizationProviding
+        for resource: R
     ) async throws -> URLRequest {
-        guard let requestURL = buildUrl(for: resource) else {
+        guard let requestUrl = buildUrl(for: resource) else {
             throw NetworkError.failedToBuildRequest
         }
-        var request = URLRequest(url: requestURL)
+        var request = URLRequest(url: requestUrl)
         request.httpMethod = resource.httpRequestMethod.rawValue
         request.httpBody = resource.body
         switch resource.authorizationNeeds {
         case .none:
             break
         case .standard:
-            await request.authorize(
-                with: try authorizationProvider.getAuthorizationToken()
-            )
+            guard let authorizationToken: String = try keychain.readFromKeychain(
+                keychainKey: .authorization
+            ) else {
+                print("Couldn't authorize the request.")
+                break
+                //TODO: Throw an error?
+            }
+            request.authorize(with: authorizationToken)
         }
+        if resource.body != nil {
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        print("curl: ", request.cURL())
         return request
     }
     
@@ -70,5 +83,33 @@ final class RequestBuilder: RequestBuilding {
 private extension URLRequest {
     mutating func authorize(with accessToken: String) {
         setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+    }
+}
+
+extension URLRequest {
+    func cURL(pretty: Bool = false) -> String {
+        let newLine = pretty ? "\\\n" : ""
+        let method = (pretty ? "--request " : "-X ") + "\(httpMethod ?? "GET") \(newLine)"
+        let url: String = (pretty ? "--url " : "") + "\'\(url?.absoluteString ?? "")\' \(newLine)"
+
+        var cURL = "curl "
+        var header = ""
+        var data = ""
+
+        if let httpHeaders = allHTTPHeaderFields, !httpHeaders.keys.isEmpty {
+            for (key, value) in httpHeaders {
+                header += (pretty ? "--header " : "-H ") + "\'\(key): \(value)\' \(newLine)"
+            }
+        }
+
+        if let bodyData = httpBody, let bodyString = String(data: bodyData, encoding: .utf8),
+           !bodyString.isEmpty
+        {
+            data = "--data '\(bodyString)'"
+        }
+
+        cURL += method + url + header + data
+
+        return cURL
     }
 }

@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct RootView: View {
+    private let interactor: RootViewInteracting
+    
+    init(interactor: RootViewInteracting) {
+        self.interactor = interactor
+    }
+    
     var body: some View {
         VStack {
             Spacer()
@@ -21,5 +27,8 @@ struct RootView: View {
             Spacer()
         }
         .background(Color.white)
+        .onAppear {
+            interactor.onAppear()
+        }
     }
 }

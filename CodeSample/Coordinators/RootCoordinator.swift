@@ -10,6 +10,7 @@ import UIKit
 
 enum RootDestination {
     case login
+    case serversList
 }
 
 protocol RootCoordinating {
@@ -34,13 +35,21 @@ final class RootCoordinator: Coordinator, RootCoordinating {
     
     func start() {
         rootController.addChildController(
-            UIHostingController(rootView: viewFactory.buildRootView())
+            UIHostingController(
+                rootView: viewFactory.buildRootView(coordinator: self)
+            )
         )
         guard let navigationController else { return }
         navigationController.navigationBar.isHidden = true
+        rootController.addChildController(navigationController)
     }
     
     func coordinate(to destination: RootDestination) {
-        //TODO: Root coordinating
+        switch destination {
+        case .login:
+            setAsRoot(viewFactory.buildLoginView())
+        case .serversList:
+            setAsRoot(viewFactory.buildServersView())
+        }
     }
 }

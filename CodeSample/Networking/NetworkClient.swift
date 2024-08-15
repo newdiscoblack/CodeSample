@@ -14,7 +14,6 @@ protocol NetworkHandling {
 }
 
 final class NetworkClient: NetworkHandling {
-    private let authorizationProvider: AuthorizationProviding
     private let networkSession: NetworkSession
     private let requestBuilder: RequestBuilding
     private let decoder = {
@@ -25,11 +24,9 @@ final class NetworkClient: NetworkHandling {
     }()
     
     init(
-        authorizationProvider: AuthorizationProviding,
         networkSession: NetworkSession = URLSession.shared,
         requestBuilder: RequestBuilding
     ) {
-        self.authorizationProvider = authorizationProvider
         self.networkSession = networkSession
         self.requestBuilder = requestBuilder
     }
@@ -44,8 +41,7 @@ final class NetworkClient: NetworkHandling {
     @discardableResult
     private func requestData<R: Resource>(resource: R) async throws -> Data {
         let urlRequest = try await requestBuilder.buildUrlRequest(
-            for: resource,
-            using: authorizationProvider
+            for: resource
         )
         let (data, urlResponse) = try await networkSession.data(
             for: urlRequest

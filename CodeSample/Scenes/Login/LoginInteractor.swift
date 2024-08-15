@@ -10,13 +10,26 @@ protocol LoginInteracting {
 }
 
 final class LoginInteractor: LoginInteracting {
+    private let authorizer: Authorizing
     private let viewModel: LoginViewModel
     
-    init(viewModel: LoginViewModel) {
+    init(
+        authorizer: Authorizing,
+        viewModel: LoginViewModel
+    ) {
+        self.authorizer = authorizer
         self.viewModel = viewModel
     }
     
     func logIn() async {
-        try? await Task.sleep(for: .seconds(3))
+        do {
+            try await authorizer.logInWith(
+                username: viewModel.username,
+                password: viewModel.password
+            )
+        } catch {
+            print(error)
+            //TODO: Set error in ViewModel
+        }
     }
 }

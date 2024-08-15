@@ -8,7 +8,13 @@
 import SwiftUI
 
 extension ViewFactory {
-    @ViewBuilder func buildRootView() -> some View {
-        RootView()
+    @ViewBuilder func buildRootView(
+        coordinator: RootCoordinating
+    ) -> some View {
+        let interactor = RootViewInteractor(
+            authorizer: appDependencies.authorizer,
+            coordinator: coordinator
+        )
+        RootView(interactor: interactor)
     }
 }

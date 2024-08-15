@@ -29,10 +29,15 @@
 		E77CCDCF2C6CDCFD00CF764E /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDCE2C6CDCFD00CF764E /* LoginInteractor.swift */; };
 		E77CCDD12C6CDEEF00CF764E /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CCDD02C6CDEEF00CF764E /* AsyncButton.swift */; };
 		E7FDA1302C6D0E4C006E67F1 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA12F2C6D0E4C006E67F1 /* NetworkError.swift */; };
-		E7FDA1332C6D1554006E67F1 /* ObtainBearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1322C6D1554006E67F1 /* ObtainBearer.swift */; };
+		E7FDA1332C6D1554006E67F1 /* ObtainAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1322C6D1554006E67F1 /* ObtainAuthorization.swift */; };
 		E7FDA1382C6D18A5006E67F1 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1372C6D18A5006E67F1 /* RootView.swift */; };
 		E7FDA13A2C6D1926006E67F1 /* ViewFactory+buildRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1392C6D1926006E67F1 /* ViewFactory+buildRootView.swift */; };
 		E7FDA13C2C6D1984006E67F1 /* RootViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA13B2C6D1984006E67F1 /* RootViewInteractor.swift */; };
+		E7FDA13F2C6E3EEA006E67F1 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA13E2C6E3EEA006E67F1 /* Authorization.swift */; };
+		E7FDA1412C6E3EFE006E67F1 /* Authorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1402C6E3EFE006E67F1 /* Authorizer.swift */; };
+		E7FDA1432C6E4692006E67F1 /* LoginServing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1422C6E4692006E67F1 /* LoginServing.swift */; };
+		E7FDA1462C6E7871006E67F1 /* ServersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1452C6E7871006E67F1 /* ServersView.swift */; };
+		E7FDA1482C6E7897006E67F1 /* ViewFactory+buildServersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1472C6E7897006E67F1 /* ViewFactory+buildServersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,10 +64,15 @@
 		E77CCDCE2C6CDCFD00CF764E /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		E77CCDD02C6CDEEF00CF764E /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		E7FDA12F2C6D0E4C006E67F1 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		E7FDA1322C6D1554006E67F1 /* ObtainBearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainBearer.swift; sourceTree = "<group>"; };
+		E7FDA1322C6D1554006E67F1 /* ObtainAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainAuthorization.swift; sourceTree = "<group>"; };
 		E7FDA1372C6D18A5006E67F1 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E7FDA1392C6D1926006E67F1 /* ViewFactory+buildRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewFactory+buildRootView.swift"; sourceTree = "<group>"; };
 		E7FDA13B2C6D1984006E67F1 /* RootViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewInteractor.swift; sourceTree = "<group>"; };
+		E7FDA13E2C6E3EEA006E67F1 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		E7FDA1402C6E3EFE006E67F1 /* Authorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorizer.swift; sourceTree = "<group>"; };
+		E7FDA1422C6E4692006E67F1 /* LoginServing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServing.swift; sourceTree = "<group>"; };
+		E7FDA1452C6E7871006E67F1 /* ServersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersView.swift; sourceTree = "<group>"; };
+		E7FDA1472C6E7897006E67F1 /* ViewFactory+buildServersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewFactory+buildServersView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				E70EA97C2C6CE86B00D25AFC /* Resource.swift */,
-				E7FDA1322C6D1554006E67F1 /* ObtainBearer.swift */,
+				E7FDA1322C6D1554006E67F1 /* ObtainAuthorization.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -125,6 +135,7 @@
 		E77CCDAB2C6CB35800CF764E /* CodeSample */ = {
 			isa = PBXGroup;
 			children = (
+				E7FDA13D2C6E3ED8006E67F1 /* Authorizing */,
 				E70EA9842C6CEAEE00D25AFC /* Storing */,
 				E70EA9782C6CE83600D25AFC /* Networking */,
 				E77CCDBE2C6CB3C300CF764E /* Coordinators */,
@@ -150,6 +161,7 @@
 		E77CCDBB2C6CB3B400CF764E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E7FDA1442C6E783D006E67F1 /* Servers */,
 				E7FDA1362C6D189D006E67F1 /* Root */,
 				E77CCDCB2C6CDB3700CF764E /* Login */,
 			);
@@ -171,6 +183,7 @@
 			children = (
 				E77CCDBF2C6CB3D700CF764E /* AppDependencies.swift */,
 				E77CCDC12C6CB3E700CF764E /* ViewFactory.swift */,
+				E7FDA1422C6E4692006E67F1 /* LoginServing.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -204,6 +217,24 @@
 				E7FDA13B2C6D1984006E67F1 /* RootViewInteractor.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		E7FDA13D2C6E3ED8006E67F1 /* Authorizing */ = {
+			isa = PBXGroup;
+			children = (
+				E7FDA13E2C6E3EEA006E67F1 /* Authorization.swift */,
+				E7FDA1402C6E3EFE006E67F1 /* Authorizer.swift */,
+			);
+			path = Authorizing;
+			sourceTree = "<group>";
+		};
+		E7FDA1442C6E783D006E67F1 /* Servers */ = {
+			isa = PBXGroup;
+			children = (
+				E7FDA1452C6E7871006E67F1 /* ServersView.swift */,
+				E7FDA1472C6E7897006E67F1 /* ViewFactory+buildServersView.swift */,
+			);
+			path = Servers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,21 +321,26 @@
 				E77CCDCA2C6CB8E700CF764E /* AppDelegate.swift in Sources */,
 				E77CCDC02C6CB3D700CF764E /* AppDependencies.swift in Sources */,
 				E77CCDAF2C6CB35800CF764E /* LoginView.swift in Sources */,
+				E7FDA1482C6E7897006E67F1 /* ViewFactory+buildServersView.swift in Sources */,
 				E70EA98D2C6CECA300D25AFC /* JSONDecoder+fromSnakeCase.swift in Sources */,
 				E7FDA1302C6D0E4C006E67F1 /* NetworkError.swift in Sources */,
+				E7FDA1432C6E4692006E67F1 /* LoginServing.swift in Sources */,
 				E77CCDC42C6CB46B00CF764E /* Coordinator.swift in Sources */,
 				E77CCDCD2C6CDB4000CF764E /* LoginViewModel.swift in Sources */,
 				E70EA97F2C6CE91900D25AFC /* NetworkSession.swift in Sources */,
 				E7FDA13A2C6D1926006E67F1 /* ViewFactory+buildRootView.swift in Sources */,
 				E77CCDC62C6CB48E00CF764E /* RootCoordinator.swift in Sources */,
+				E7FDA13F2C6E3EEA006E67F1 /* Authorization.swift in Sources */,
 				E77CCDD12C6CDEEF00CF764E /* AsyncButton.swift in Sources */,
 				E77CCDC22C6CB3E700CF764E /* ViewFactory.swift in Sources */,
 				E70EA98B2C6CEC8A00D25AFC /* JSONEncoder+toSnakeCase.swift in Sources */,
 				E77CCDC82C6CB4AC00CF764E /* UIViewController+addChildController.swift in Sources */,
+				E7FDA1412C6E3EFE006E67F1 /* Authorizer.swift in Sources */,
 				E7FDA13C2C6D1984006E67F1 /* RootViewInteractor.swift in Sources */,
 				E77CCDCF2C6CDCFD00CF764E /* LoginInteractor.swift in Sources */,
-				E7FDA1332C6D1554006E67F1 /* ObtainBearer.swift in Sources */,
+				E7FDA1332C6D1554006E67F1 /* ObtainAuthorization.swift in Sources */,
 				E70EA97A2C6CE83E00D25AFC /* NetworkClient.swift in Sources */,
+				E7FDA1462C6E7871006E67F1 /* ServersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

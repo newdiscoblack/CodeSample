@@ -10,7 +10,10 @@ import SwiftUI
 extension ViewFactory {
     @ViewBuilder func buildLoginView() -> some View {
         let viewModel = LoginViewModel()
-        let interactor = LoginInteractor(viewModel: viewModel)
+        let interactor = LoginInteractor(
+            authorizer: appDependencies.authorizer,
+            viewModel: viewModel
+        )
         LoginView(viewModel: viewModel, interactor: interactor)
     }
 }

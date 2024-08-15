@@ -109,12 +109,12 @@ private struct LoginTextField: View {
     }
 }
 
-#Preview {
-    LoginView(
-        viewModel: LoginViewModel(),
-        interactor: LoginInteractor(viewModel: LoginViewModel())
-    )
-}
+//#Preview {
+//    LoginView(
+//        viewModel: LoginViewModel(),
+//        interactor: LoginInteractor(viewModel: LoginViewModel())
+//    )
+//}
 
 private extension Color {
     static var loginTextFieldBackgroundColor: Color {

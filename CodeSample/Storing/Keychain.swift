@@ -15,7 +15,7 @@ protocol KeychainStoring {
 }
 
 enum KeychainKey: String {
-    case authorizationToken
+    case authorization
 }
 
 final class Keychain: KeychainStoring {
@@ -33,7 +33,7 @@ final class Keychain: KeychainStoring {
         keychainKey: KeychainKey
     ) throws where T : Encodable {
         switch keychainKey {
-        case .authorizationToken:
+        case .authorization:
             appValet.store(value: item, forKey: keychainKey)
         }
     }
@@ -42,7 +42,7 @@ final class Keychain: KeychainStoring {
         keychainKey: KeychainKey
     ) throws -> T? where T : Decodable {
         switch keychainKey {
-        case .authorizationToken:
+        case .authorization:
             return try appValet.read(atKey: keychainKey)
         }
     }
