@@ -17,11 +17,7 @@ extension RootCoordinator: LoginCoordinating {
     func coordinate(to destination: LoginDestination) {
         switch destination {
         case .serversList:
-            guard let navigationController else { return }
-            ServersCoordinator(
-                navigationController: navigationController,
-                viewFactory: viewFactory
-            ).start()
+            setAsRoot(viewFactory.buildServersView())
         }
     }
 }

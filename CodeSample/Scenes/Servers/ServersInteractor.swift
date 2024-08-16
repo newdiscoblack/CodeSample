@@ -21,18 +21,15 @@ protocol ServersInteracting {
 
 final class ServersInteractor: ServersInteracting {
     private let authorizer: Authorizing
-    private let coordinator: ServersCoordinating
     private let serversListService: ServersListServing
     private let viewModel: ServersViewModel
     
     init(
         authorizer: Authorizing,
-        coordinator: ServersCoordinating,
         serversListService: ServersListServing,
         viewModel: ServersViewModel
     ) {
         self.authorizer = authorizer
-        self.coordinator = coordinator
         self.serversListService = serversListService
         self.viewModel = viewModel
     }

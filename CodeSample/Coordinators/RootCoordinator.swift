@@ -49,11 +49,7 @@ final class RootCoordinator: Coordinator, RootCoordinating {
         case .login:
             setAsRoot(viewFactory.buildLoginView(coordinator: self))
         case .serversList:
-            guard let navigationController else { return }
-            ServersCoordinator(
-                navigationController: navigationController,
-                viewFactory: viewFactory
-            ).start()
+            setAsRoot(viewFactory.buildServersView())
         }
     }
 }

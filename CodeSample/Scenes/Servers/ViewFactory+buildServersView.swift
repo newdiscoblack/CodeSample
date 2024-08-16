@@ -8,13 +8,10 @@
 import SwiftUI
 
 extension ViewFactory {
-    @ViewBuilder func buildServersView(
-        coordinator: ServersCoordinating
-    ) -> some View {
+    @ViewBuilder func buildServersView() -> some View {
         let viewModel = ServersViewModel()
         let interactor = ServersInteractor(
             authorizer: appDependencies.authorizer,
-            coordinator: coordinator,
             serversListService: appDependencies.networkClient,
             viewModel: viewModel
         )

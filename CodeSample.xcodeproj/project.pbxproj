@@ -46,7 +46,6 @@
 		E7FDA1482C6E7897006E67F1 /* ViewFactory+buildServersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1472C6E7897006E67F1 /* ViewFactory+buildServersView.swift */; };
 		E7FDA14C2C6E791B006E67F1 /* ServersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA14B2C6E791B006E67F1 /* ServersInteractor.swift */; };
 		E7FDA1522C6E7BA5006E67F1 /* LoginCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1512C6E7BA5006E67F1 /* LoginCoordinating.swift */; };
-		E7FDA1542C6E7C9D006E67F1 /* ServersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1532C6E7C9D006E67F1 /* ServersCoordinator.swift */; };
 		E7FDA1592C6F4C44006E67F1 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1582C6F4C44006E67F1 /* ErrorPresenter.swift */; };
 		E7FDA15B2C6F513B006E67F1 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA15A2C6F513B006E67F1 /* ErrorView.swift */; };
 		E7FDA15D2C6F514E006E67F1 /* View+onErrorReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA15C2C6F514E006E67F1 /* View+onErrorReceived.swift */; };
@@ -93,7 +92,6 @@
 		E7FDA1472C6E7897006E67F1 /* ViewFactory+buildServersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewFactory+buildServersView.swift"; sourceTree = "<group>"; };
 		E7FDA14B2C6E791B006E67F1 /* ServersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersInteractor.swift; sourceTree = "<group>"; };
 		E7FDA1512C6E7BA5006E67F1 /* LoginCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinating.swift; sourceTree = "<group>"; };
-		E7FDA1532C6E7C9D006E67F1 /* ServersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersCoordinator.swift; sourceTree = "<group>"; };
 		E7FDA1582C6F4C44006E67F1 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		E7FDA15A2C6F513B006E67F1 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E7FDA15C2C6F514E006E67F1 /* View+onErrorReceived.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+onErrorReceived.swift"; sourceTree = "<group>"; };
@@ -223,7 +221,7 @@
 			children = (
 				E77CCDC32C6CB46B00CF764E /* Coordinator.swift */,
 				E77CCDC52C6CB48E00CF764E /* RootCoordinator.swift */,
-				E7FDA1532C6E7C9D006E67F1 /* ServersCoordinator.swift */,
+				E7FDA1512C6E7BA5006E67F1 /* LoginCoordinating.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -236,7 +234,6 @@
 				E77CCDCE2C6CDCFD00CF764E /* LoginInteractor.swift */,
 				E77CCDD02C6CDEEF00CF764E /* AsyncButton.swift */,
 				E70EA9762C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift */,
-				E7FDA1512C6E7BA5006E67F1 /* LoginCoordinating.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -359,7 +356,6 @@
 			files = (
 				E70169802C6F6D3200C28B7A /* ServersViewModel.swift in Sources */,
 				E70EA9862C6CEAF500D25AFC /* Keychain.swift in Sources */,
-				E7FDA1542C6E7C9D006E67F1 /* ServersCoordinator.swift in Sources */,
 				E7FDA1382C6D18A5006E67F1 /* RootView.swift in Sources */,
 				E701697C2C6F6B6700C28B7A /* ServersListServing.swift in Sources */,
 				E70EA9812C6CEA6100D25AFC /* RequestBuilder.swift in Sources */,
