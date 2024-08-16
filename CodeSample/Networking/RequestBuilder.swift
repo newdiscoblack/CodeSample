@@ -38,13 +38,13 @@ final class RequestBuilder: RequestBuilding {
         case .none:
             break
         case .standard:
-            guard let authorizationToken: String = try keychain.readFromKeychain(
+            guard let authorization: Authorization = try keychain.readFromKeychain(
                 keychainKey: .authorization
             ) else {
                 print("Couldn't authorize the request.")
                 break
             }
-            request.authorize(with: authorizationToken)
+            request.authorize(with: authorization.token)
         }
         if resource.body != nil {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")

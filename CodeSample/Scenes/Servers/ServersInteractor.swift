@@ -14,13 +14,20 @@ protocol ServersInteracting {
 final class ServersInteractor: ServersInteracting {
     private let authorizer: Authorizing
     private let coordinator: ServersCoordinating
+    private let serversListService: ServersListServing
     
     init(
         authorizer: Authorizing,
-        coordinator: ServersCoordinating
+        coordinator: ServersCoordinating,
+        serversListService: ServersListServing
     ) {
         self.authorizer = authorizer
         self.coordinator = coordinator
+        self.serversListService = serversListService
+        Task {
+            let servers: [Server]? = try? await serversListService.fetchServersList()
+            print("servers: ", servers)
+        }
     }
     
     func logOut() {

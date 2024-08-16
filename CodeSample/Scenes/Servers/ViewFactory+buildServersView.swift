@@ -13,7 +13,8 @@ extension ViewFactory {
     ) -> some View {
         let interactor = ServersInteractor(
             authorizer: appDependencies.authorizer,
-            coordinator: coordinator
+            coordinator: coordinator,
+            serversListService: appDependencies.networkClient
         )
         ServersView(interactor: interactor)
     }

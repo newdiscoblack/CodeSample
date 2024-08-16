@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E701697A2C6F6B5300C28B7A /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70169792C6F6B5300C28B7A /* Server.swift */; };
+		E701697C2C6F6B6700C28B7A /* ServersListServing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E701697B2C6F6B6700C28B7A /* ServersListServing.swift */; };
+		E701697E2C6F6B7600C28B7A /* FetchServersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E701697D2C6F6B7600C28B7A /* FetchServersList.swift */; };
 		E70EA9772C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA9762C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift */; };
 		E70EA97A2C6CE83E00D25AFC /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA9792C6CE83E00D25AFC /* NetworkClient.swift */; };
 		E70EA97D2C6CE86B00D25AFC /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA97C2C6CE86B00D25AFC /* Resource.swift */; };
@@ -48,6 +51,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E70169792C6F6B5300C28B7A /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		E701697B2C6F6B6700C28B7A /* ServersListServing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersListServing.swift; sourceTree = "<group>"; };
+		E701697D2C6F6B7600C28B7A /* FetchServersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchServersList.swift; sourceTree = "<group>"; };
 		E70EA9762C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewFactory+buildLoginView.swift"; sourceTree = "<group>"; };
 		E70EA9792C6CE83E00D25AFC /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		E70EA97C2C6CE86B00D25AFC /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
@@ -118,6 +124,7 @@
 			children = (
 				E70EA97C2C6CE86B00D25AFC /* Resource.swift */,
 				E7FDA1322C6D1554006E67F1 /* ObtainAuthorization.swift */,
+				E701697D2C6F6B7600C28B7A /* FetchServersList.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -149,7 +156,7 @@
 		E77CCDAB2C6CB35800CF764E /* CodeSample */ = {
 			isa = PBXGroup;
 			children = (
-				E7FDA13D2C6E3ED8006E67F1 /* Authorizing */,
+				E7FDA13D2C6E3ED8006E67F1 /* Models */,
 				E70EA9842C6CEAEE00D25AFC /* Storing */,
 				E70EA9782C6CE83600D25AFC /* Networking */,
 				E77CCDBE2C6CB3C300CF764E /* Coordinators */,
@@ -196,9 +203,11 @@
 		E77CCDBD2C6CB3BC00CF764E /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				E7FDA1402C6E3EFE006E67F1 /* Authorizer.swift */,
 				E77CCDBF2C6CB3D700CF764E /* AppDependencies.swift */,
 				E77CCDC12C6CB3E700CF764E /* ViewFactory.swift */,
 				E7FDA1422C6E4692006E67F1 /* LoginServing.swift */,
+				E701697B2C6F6B6700C28B7A /* ServersListServing.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -237,13 +246,13 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
-		E7FDA13D2C6E3ED8006E67F1 /* Authorizing */ = {
+		E7FDA13D2C6E3ED8006E67F1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				E7FDA13E2C6E3EEA006E67F1 /* Authorization.swift */,
-				E7FDA1402C6E3EFE006E67F1 /* Authorizer.swift */,
+				E70169792C6F6B5300C28B7A /* Server.swift */,
 			);
-			path = Authorizing;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E7FDA1442C6E783D006E67F1 /* Servers */ = {
@@ -345,7 +354,9 @@
 				E70EA9862C6CEAF500D25AFC /* Keychain.swift in Sources */,
 				E7FDA1542C6E7C9D006E67F1 /* ServersCoordinator.swift in Sources */,
 				E7FDA1382C6D18A5006E67F1 /* RootView.swift in Sources */,
+				E701697C2C6F6B6700C28B7A /* ServersListServing.swift in Sources */,
 				E70EA9812C6CEA6100D25AFC /* RequestBuilder.swift in Sources */,
+				E701697E2C6F6B7600C28B7A /* FetchServersList.swift in Sources */,
 				E7FDA1592C6F4C44006E67F1 /* ErrorPresenter.swift in Sources */,
 				E7FDA1522C6E7BA5006E67F1 /* LoginCoordinating.swift in Sources */,
 				E70EA97D2C6CE86B00D25AFC /* Resource.swift in Sources */,
@@ -376,6 +387,7 @@
 				E7FDA1332C6D1554006E67F1 /* ObtainAuthorization.swift in Sources */,
 				E70EA97A2C6CE83E00D25AFC /* NetworkClient.swift in Sources */,
 				E7FDA1562C6F48F6006E67F1 /* RootViewModel.swift in Sources */,
+				E701697A2C6F6B5300C28B7A /* Server.swift in Sources */,
 				E7FDA1462C6E7871006E67F1 /* ServersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
