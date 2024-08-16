@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct RootView: View {
+    @ObservedObject private var viewModel: RootViewModel //TODO: Remove?
     private let interactor: RootViewInteracting
     
-    init(interactor: RootViewInteracting) {
+    init(
+        viewModel: RootViewModel,
+        interactor: RootViewInteracting
+    ) {
+        self.viewModel = viewModel
         self.interactor = interactor
     }
     
+    @State private var scale = 50.0
     var body: some View {
         VStack {
             Spacer()

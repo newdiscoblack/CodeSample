@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct ServersView: View {
+    private let interactor: ServersInteracting
+    
+    init(interactor: ServersInteracting) {
+        self.interactor = interactor
+    }
+    
     var body: some View {
-        Text("Servers List")
+        VStack {
+            Text("Servers List")
+            Button(action: interactor.logOut) {
+                Text("Log out")
+            }
+        }
     }
 }
 
-#Preview {
-    ServersView()
-}
+//#Preview {
+//    ServersView()
+//}

@@ -9,8 +9,12 @@ import Foundation
 import Valet
 
 protocol KeychainStoring {
-    func saveInKeychain<T: Encodable>(_ item: T, keychainKey: KeychainKey) throws
-    func readFromKeychain<T: Decodable>(keychainKey: KeychainKey) throws -> T?
+    func saveInKeychain<T: Encodable>(
+        _ item: T, keychainKey: KeychainKey
+    ) throws
+    func readFromKeychain<T: Decodable>(
+        keychainKey: KeychainKey
+    ) throws -> T?
     func clear(_ serviceIdentifier: KeychainKey)
 }
 
@@ -59,7 +63,9 @@ private extension Valet {
             let data = try JSONEncoder.toSnakeCase.encode(value)
             try setObject(data, forKey: key.rawValue)
         } catch {
-            assertionFailure("Failed to encode value: \(value): error: \(error.localizedDescription)")
+            assertionFailure(
+                "Failed to encode value: \(value): error: \(error.localizedDescription)"
+            )
         }
     }
     

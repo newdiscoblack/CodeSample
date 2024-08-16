@@ -43,7 +43,6 @@ final class RequestBuilder: RequestBuilding {
             ) else {
                 print("Couldn't authorize the request.")
                 break
-                //TODO: Throw an error?
             }
             request.authorize(with: authorizationToken)
         }
@@ -51,7 +50,7 @@ final class RequestBuilder: RequestBuilding {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        print("curl: ", request.cURL())
+        print(request.cURL()) //TODO: Remove?
         return request
     }
     

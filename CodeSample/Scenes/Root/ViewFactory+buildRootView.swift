@@ -11,10 +11,15 @@ extension ViewFactory {
     @ViewBuilder func buildRootView(
         coordinator: RootCoordinating
     ) -> some View {
+        let viewModel = RootViewModel()
         let interactor = RootViewInteractor(
             authorizer: appDependencies.authorizer,
-            coordinator: coordinator
+            coordinator: coordinator,
+            viewModel: viewModel
         )
-        RootView(interactor: interactor)
+        RootView(
+            viewModel: viewModel,
+            interactor: interactor
+        )
     }
 }
