@@ -11,6 +11,8 @@
 		E701697C2C6F6B6700C28B7A /* ServersListServing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E701697B2C6F6B6700C28B7A /* ServersListServing.swift */; };
 		E701697E2C6F6B7600C28B7A /* FetchServersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E701697D2C6F6B7600C28B7A /* FetchServersList.swift */; };
 		E70169802C6F6D3200C28B7A /* ServersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E701697F2C6F6D3200C28B7A /* ServersViewModel.swift */; };
+		E70169822C6F85D000C28B7A /* AuthorizationProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70169812C6F85D000C28B7A /* AuthorizationProviding.swift */; };
+		E70169842C6F86EB00C28B7A /* RequestBuilderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70169832C6F86EB00C28B7A /* RequestBuilderError.swift */; };
 		E70EA9772C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA9762C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift */; };
 		E70EA97A2C6CE83E00D25AFC /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA9792C6CE83E00D25AFC /* NetworkClient.swift */; };
 		E70EA97D2C6CE86B00D25AFC /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA97C2C6CE86B00D25AFC /* Resource.swift */; };
@@ -56,6 +58,8 @@
 		E701697B2C6F6B6700C28B7A /* ServersListServing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersListServing.swift; sourceTree = "<group>"; };
 		E701697D2C6F6B7600C28B7A /* FetchServersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchServersList.swift; sourceTree = "<group>"; };
 		E701697F2C6F6D3200C28B7A /* ServersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersViewModel.swift; sourceTree = "<group>"; };
+		E70169812C6F85D000C28B7A /* AuthorizationProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationProviding.swift; sourceTree = "<group>"; };
+		E70169832C6F86EB00C28B7A /* RequestBuilderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilderError.swift; sourceTree = "<group>"; };
 		E70EA9762C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewFactory+buildLoginView.swift"; sourceTree = "<group>"; };
 		E70EA9792C6CE83E00D25AFC /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		E70EA97C2C6CE86B00D25AFC /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				E70EA97E2C6CE91900D25AFC /* NetworkSession.swift */,
 				E70EA9802C6CEA6100D25AFC /* RequestBuilder.swift */,
 				E7FDA12F2C6D0E4C006E67F1 /* NetworkError.swift */,
+				E70169832C6F86EB00C28B7A /* RequestBuilderError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				E77CCDC12C6CB3E700CF764E /* ViewFactory.swift */,
 				E7FDA1422C6E4692006E67F1 /* LoginServing.swift */,
 				E701697B2C6F6B6700C28B7A /* ServersListServing.swift */,
+				E70169812C6F85D000C28B7A /* AuthorizationProviding.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -372,8 +378,10 @@
 				E70EA98D2C6CECA300D25AFC /* JSONDecoder+fromSnakeCase.swift in Sources */,
 				E7FDA1302C6D0E4C006E67F1 /* NetworkError.swift in Sources */,
 				E7FDA1432C6E4692006E67F1 /* LoginServing.swift in Sources */,
+				E70169822C6F85D000C28B7A /* AuthorizationProviding.swift in Sources */,
 				E77CCDC42C6CB46B00CF764E /* Coordinator.swift in Sources */,
 				E7FDA15D2C6F514E006E67F1 /* View+onErrorReceived.swift in Sources */,
+				E70169842C6F86EB00C28B7A /* RequestBuilderError.swift in Sources */,
 				E77CCDCD2C6CDB4000CF764E /* LoginViewModel.swift in Sources */,
 				E70EA97F2C6CE91900D25AFC /* NetworkSession.swift in Sources */,
 				E7FDA13A2C6D1926006E67F1 /* ViewFactory+buildRootView.swift in Sources */,

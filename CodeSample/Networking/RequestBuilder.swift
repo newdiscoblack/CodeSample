@@ -15,21 +15,21 @@ protocol RequestBuilding {
 
 final class RequestBuilder: RequestBuilding {
     private let host: String
-    private let keychain: KeychainStoring
+    private let authorizationProvider: AuthorizationProviding
     
     init(
         host: String,
-        keychain: KeychainStoring
+        authorizationProvider: AuthorizationProviding
     ) {
         self.host = host
-        self.keychain = keychain
+        self.authorizationProvider = authorizationProvider
     }
     
     func buildUrlRequest<R: Resource>(
         for resource: R
     ) async throws -> URLRequest {
         guard let requestUrl = buildUrl(for: resource) else {
-            throw NetworkError.failedToBuildRequest
+            throw RequestBuilderError.failedToBuildTheRequest
         }
         var request = URLRequest(url: requestUrl)
         request.httpMethod = resource.httpRequestMethod.rawValue
@@ -38,44 +38,25 @@ final class RequestBuilder: RequestBuilding {
         case .none:
             break
         case .standard:
-            guard let authorization: Authorization = try keychain.readFromKeychain(
-                keychainKey: .authorization
-            ) else {
-                print("Couldn't authorize the request.")
-                break
+            guard let authorizationToken = authorizationProvider
+                .getStandardAuthorizationToken() else {
+                throw RequestBuilderError.failedToAuthorizeTheRequest
             }
-            request.authorize(with: authorization.token)
+            request.authorize(with: authorizationToken)
         }
         if resource.body != nil {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        print(request.cURL()) //TODO: Remove?
+        print(request.cURL())
         return request
     }
     
     private func buildUrl<R: Resource>(for resource: R) -> URL? {
         guard var urlComponents = URLComponents(string: host) else { return nil }
         urlComponents.path.append("/\(resource.path)")
-        urlComponents.percentEncodedQueryItems = queryItems(for: resource)
         let url = urlComponents.url
         return url
-    }
-    
-    //TODO: Make sure it's all good here
-    private func queryItems<R: Resource>(for resource: R) -> [URLQueryItem]? {
-        var items = [URLQueryItem]()
-        if let query = resource.query {
-            let resourceItems = query.compactMap { key, value -> URLQueryItem? in
-                guard let value = value else { return nil }
-                return URLQueryItem(
-                    name: key,
-                    value: value
-                )
-            }
-            items.append(contentsOf: resourceItems)
-        }
-        return items.isEmpty ? nil : items
     }
 }
 

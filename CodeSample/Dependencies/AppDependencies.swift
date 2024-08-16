@@ -9,7 +9,7 @@ final class AppDependencies {
     lazy var keychain = Keychain()
     lazy var requestBuilder = RequestBuilder(
         host: "https://playground.nordsec.com",
-        keychain: keychain
+        authorizationProvider: keychain
     )
     lazy var networkClient = NetworkClient(
         requestBuilder: requestBuilder
