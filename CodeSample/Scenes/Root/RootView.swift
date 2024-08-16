@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct RootView: View {
-    @ObservedObject private var viewModel: RootViewModel //TODO: Remove?
     private let interactor: RootViewInteracting
     
-    init(
-        viewModel: RootViewModel,
-        interactor: RootViewInteracting
-    ) {
-        self.viewModel = viewModel
+    init(interactor: RootViewInteracting) {
         self.interactor = interactor
     }
     

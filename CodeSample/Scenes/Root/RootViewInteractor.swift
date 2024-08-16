@@ -15,16 +15,13 @@ protocol RootViewInteracting {
 final class RootViewInteractor: RootViewInteracting {
     private let authorizer: Authorizing
     private let coordinator: RootCoordinating
-    private let viewModel: RootViewModel
     
     init(
         authorizer: Authorizing,
-        coordinator: RootCoordinating,
-        viewModel: RootViewModel
+        coordinator: RootCoordinating
     ) {
         self.authorizer = authorizer
         self.coordinator = coordinator
-        self.viewModel = viewModel
     }
     
     private var isAuthorizedCancellable: AnyCancellable?
@@ -34,7 +31,6 @@ final class RootViewInteractor: RootViewInteracting {
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveValue: { [weak self] isAuthorized in
-                    self?.viewModel.animation.toggle()
                     isAuthorized
                     ? self?.coordinator.coordinate(to: .serversList)
                     : self?.coordinator.coordinate(to: .login)

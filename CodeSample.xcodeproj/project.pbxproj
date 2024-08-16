@@ -47,7 +47,6 @@
 		E7FDA14C2C6E791B006E67F1 /* ServersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA14B2C6E791B006E67F1 /* ServersInteractor.swift */; };
 		E7FDA1522C6E7BA5006E67F1 /* LoginCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1512C6E7BA5006E67F1 /* LoginCoordinating.swift */; };
 		E7FDA1542C6E7C9D006E67F1 /* ServersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1532C6E7C9D006E67F1 /* ServersCoordinator.swift */; };
-		E7FDA1562C6F48F6006E67F1 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1552C6F48F6006E67F1 /* RootViewModel.swift */; };
 		E7FDA1592C6F4C44006E67F1 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1582C6F4C44006E67F1 /* ErrorPresenter.swift */; };
 		E7FDA15B2C6F513B006E67F1 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA15A2C6F513B006E67F1 /* ErrorView.swift */; };
 		E7FDA15D2C6F514E006E67F1 /* View+onErrorReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA15C2C6F514E006E67F1 /* View+onErrorReceived.swift */; };
@@ -95,7 +94,6 @@
 		E7FDA14B2C6E791B006E67F1 /* ServersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersInteractor.swift; sourceTree = "<group>"; };
 		E7FDA1512C6E7BA5006E67F1 /* LoginCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinating.swift; sourceTree = "<group>"; };
 		E7FDA1532C6E7C9D006E67F1 /* ServersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersCoordinator.swift; sourceTree = "<group>"; };
-		E7FDA1552C6F48F6006E67F1 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		E7FDA1582C6F4C44006E67F1 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		E7FDA15A2C6F513B006E67F1 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E7FDA15C2C6F514E006E67F1 /* View+onErrorReceived.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+onErrorReceived.swift"; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 				E7FDA1372C6D18A5006E67F1 /* RootView.swift */,
 				E7FDA1392C6D1926006E67F1 /* ViewFactory+buildRootView.swift */,
 				E7FDA13B2C6D1984006E67F1 /* RootViewInteractor.swift */,
-				E7FDA1552C6F48F6006E67F1 /* RootViewModel.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -398,7 +395,6 @@
 				E77CCDCF2C6CDCFD00CF764E /* LoginInteractor.swift in Sources */,
 				E7FDA1332C6D1554006E67F1 /* ObtainAuthorization.swift in Sources */,
 				E70EA97A2C6CE83E00D25AFC /* NetworkClient.swift in Sources */,
-				E7FDA1562C6F48F6006E67F1 /* RootViewModel.swift in Sources */,
 				E701697A2C6F6B5300C28B7A /* Server.swift in Sources */,
 				E7FDA1462C6E7871006E67F1 /* ServersView.swift in Sources */,
 			);
