@@ -20,7 +20,6 @@ extension Resource {
     public var headers: [String: String]? { nil }
     public var body: Data? { nil }
     public var query: [String: String?]? { nil }
-    public var authorizationNeeds: AuthorizationNeeds { .standard }
 }
 
 public enum AuthorizationNeeds {

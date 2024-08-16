@@ -10,6 +10,7 @@
 		E701697A2C6F6B5300C28B7A /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70169792C6F6B5300C28B7A /* Server.swift */; };
 		E701697C2C6F6B6700C28B7A /* ServersListServing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E701697B2C6F6B6700C28B7A /* ServersListServing.swift */; };
 		E701697E2C6F6B7600C28B7A /* FetchServersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E701697D2C6F6B7600C28B7A /* FetchServersList.swift */; };
+		E70169802C6F6D3200C28B7A /* ServersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E701697F2C6F6D3200C28B7A /* ServersViewModel.swift */; };
 		E70EA9772C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA9762C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift */; };
 		E70EA97A2C6CE83E00D25AFC /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA9792C6CE83E00D25AFC /* NetworkClient.swift */; };
 		E70EA97D2C6CE86B00D25AFC /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EA97C2C6CE86B00D25AFC /* Resource.swift */; };
@@ -54,6 +55,7 @@
 		E70169792C6F6B5300C28B7A /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		E701697B2C6F6B6700C28B7A /* ServersListServing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersListServing.swift; sourceTree = "<group>"; };
 		E701697D2C6F6B7600C28B7A /* FetchServersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchServersList.swift; sourceTree = "<group>"; };
+		E701697F2C6F6D3200C28B7A /* ServersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersViewModel.swift; sourceTree = "<group>"; };
 		E70EA9762C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewFactory+buildLoginView.swift"; sourceTree = "<group>"; };
 		E70EA9792C6CE83E00D25AFC /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		E70EA97C2C6CE86B00D25AFC /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				E7FDA1452C6E7871006E67F1 /* ServersView.swift */,
 				E7FDA1472C6E7897006E67F1 /* ViewFactory+buildServersView.swift */,
 				E7FDA14B2C6E791B006E67F1 /* ServersInteractor.swift */,
+				E701697F2C6F6D3200C28B7A /* ServersViewModel.swift */,
 			);
 			path = Servers;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E70169802C6F6D3200C28B7A /* ServersViewModel.swift in Sources */,
 				E70EA9862C6CEAF500D25AFC /* Keychain.swift in Sources */,
 				E7FDA1542C6E7C9D006E67F1 /* ServersCoordinator.swift in Sources */,
 				E7FDA1382C6D18A5006E67F1 /* RootView.swift in Sources */,

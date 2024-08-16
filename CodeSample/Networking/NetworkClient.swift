@@ -18,8 +18,6 @@ final class NetworkClient: NetworkHandling {
     private let requestBuilder: RequestBuilding
     private let decoder = {
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dateDecodingStrategy = .iso8601
         return decoder
     }()
     

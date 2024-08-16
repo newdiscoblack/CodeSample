@@ -11,12 +11,17 @@ extension ViewFactory {
     @ViewBuilder func buildServersView(
         coordinator: ServersCoordinating
     ) -> some View {
+        let viewModel = ServersViewModel()
         let interactor = ServersInteractor(
             authorizer: appDependencies.authorizer,
             coordinator: coordinator,
-            serversListService: appDependencies.networkClient
+            serversListService: appDependencies.networkClient,
+            viewModel: viewModel
         )
-        ServersView(interactor: interactor)
+        ServersView(
+            viewModel: viewModel,
+            interactor: interactor
+        )
     }
 }
 
