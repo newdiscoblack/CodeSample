@@ -53,8 +53,10 @@ final class NetworkClient: NetworkHandling {
         switch statusCode {
         case 200 ..< 300:
             return data
+        case 401:
+            throw NetworkError.unauthorizedRequest
         default:
-            throw NetworkError.defaultError
+            throw NetworkError.httpError(code: statusCode)
         }
     }
 }

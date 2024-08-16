@@ -42,6 +42,9 @@
 		E7FDA1522C6E7BA5006E67F1 /* LoginCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1512C6E7BA5006E67F1 /* LoginCoordinating.swift */; };
 		E7FDA1542C6E7C9D006E67F1 /* ServersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1532C6E7C9D006E67F1 /* ServersCoordinator.swift */; };
 		E7FDA1562C6F48F6006E67F1 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1552C6F48F6006E67F1 /* RootViewModel.swift */; };
+		E7FDA1592C6F4C44006E67F1 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1582C6F4C44006E67F1 /* ErrorPresenter.swift */; };
+		E7FDA15B2C6F513B006E67F1 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA15A2C6F513B006E67F1 /* ErrorView.swift */; };
+		E7FDA15D2C6F514E006E67F1 /* View+onErrorReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA15C2C6F514E006E67F1 /* View+onErrorReceived.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,9 @@
 		E7FDA1512C6E7BA5006E67F1 /* LoginCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinating.swift; sourceTree = "<group>"; };
 		E7FDA1532C6E7C9D006E67F1 /* ServersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersCoordinator.swift; sourceTree = "<group>"; };
 		E7FDA1552C6F48F6006E67F1 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		E7FDA1582C6F4C44006E67F1 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
+		E7FDA15A2C6F513B006E67F1 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E7FDA15C2C6F514E006E67F1 /* View+onErrorReceived.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+onErrorReceived.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,7 @@
 		E77CCDBB2C6CB3B400CF764E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E7FDA1572C6F4C26006E67F1 /* Error */,
 				E7FDA1442C6E783D006E67F1 /* Servers */,
 				E7FDA1362C6D189D006E67F1 /* Root */,
 				E77CCDCB2C6CDB3700CF764E /* Login */,
@@ -247,6 +254,16 @@
 				E7FDA14B2C6E791B006E67F1 /* ServersInteractor.swift */,
 			);
 			path = Servers;
+			sourceTree = "<group>";
+		};
+		E7FDA1572C6F4C26006E67F1 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E7FDA1582C6F4C44006E67F1 /* ErrorPresenter.swift */,
+				E7FDA15A2C6F513B006E67F1 /* ErrorView.swift */,
+				E7FDA15C2C6F514E006E67F1 /* View+onErrorReceived.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +346,7 @@
 				E7FDA1542C6E7C9D006E67F1 /* ServersCoordinator.swift in Sources */,
 				E7FDA1382C6D18A5006E67F1 /* RootView.swift in Sources */,
 				E70EA9812C6CEA6100D25AFC /* RequestBuilder.swift in Sources */,
+				E7FDA1592C6F4C44006E67F1 /* ErrorPresenter.swift in Sources */,
 				E7FDA1522C6E7BA5006E67F1 /* LoginCoordinating.swift in Sources */,
 				E70EA97D2C6CE86B00D25AFC /* Resource.swift in Sources */,
 				E70EA9772C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift in Sources */,
@@ -340,11 +358,13 @@
 				E7FDA1302C6D0E4C006E67F1 /* NetworkError.swift in Sources */,
 				E7FDA1432C6E4692006E67F1 /* LoginServing.swift in Sources */,
 				E77CCDC42C6CB46B00CF764E /* Coordinator.swift in Sources */,
+				E7FDA15D2C6F514E006E67F1 /* View+onErrorReceived.swift in Sources */,
 				E77CCDCD2C6CDB4000CF764E /* LoginViewModel.swift in Sources */,
 				E70EA97F2C6CE91900D25AFC /* NetworkSession.swift in Sources */,
 				E7FDA13A2C6D1926006E67F1 /* ViewFactory+buildRootView.swift in Sources */,
 				E77CCDC62C6CB48E00CF764E /* RootCoordinator.swift in Sources */,
 				E7FDA13F2C6E3EEA006E67F1 /* Authorization.swift in Sources */,
+				E7FDA15B2C6F513B006E67F1 /* ErrorView.swift in Sources */,
 				E77CCDD12C6CDEEF00CF764E /* AsyncButton.swift in Sources */,
 				E77CCDC22C6CB3E700CF764E /* ViewFactory.swift in Sources */,
 				E70EA98B2C6CEC8A00D25AFC /* JSONEncoder+toSnakeCase.swift in Sources */,

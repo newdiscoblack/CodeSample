@@ -37,6 +37,7 @@ struct LoginView: View {
             backgroundView
         }
         .ignoresSafeArea()
+        .onErrorReceived($viewModel.error)
     }
     
     private var testioHeaderView: some View {

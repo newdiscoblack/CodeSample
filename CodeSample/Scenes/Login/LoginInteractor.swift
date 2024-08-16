@@ -33,8 +33,7 @@ final class LoginInteractor: LoginInteracting {
             )
             coordinator.coordinate(to: .serversList)
         } catch {
-            print(error)
-            //TODO: Set error in ViewModel
+            viewModel.error = error
         }
     }
 }
