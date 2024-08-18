@@ -47,7 +47,7 @@ final class RootCoordinator: Coordinator, RootCoordinating {
     func coordinate(to destination: RootDestination) {
         switch destination {
         case .login:
-            setAsRoot(viewFactory.buildLoginView(coordinator: self))
+            setAsRoot(viewFactory.buildLoginView())
         case .serversList:
             setAsRoot(viewFactory.buildServersView())
         }

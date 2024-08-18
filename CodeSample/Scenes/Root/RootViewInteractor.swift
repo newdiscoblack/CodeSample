@@ -22,6 +22,7 @@ final class RootViewInteractor: RootViewInteracting {
     ) {
         self.authorizer = authorizer
         self.coordinator = coordinator
+        authorizer.restoreAuthorizationStatus()
     }
     
     private var isAuthorizedCancellable: AnyCancellable?

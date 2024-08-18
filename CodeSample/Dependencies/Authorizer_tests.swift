@@ -1,0 +1,246 @@
+//
+//  Authorizer_tests.swift
+//  CodeSampleTests
+//
+//  Created by Kacper Jagiełło on 18/08/2024.
+//
+
+import Combine
+import Foundation
+import Quick
+import Nimble
+
+@testable import CodeSample
+
+class AuthorizerSpec: AsyncSpec {
+    override class func spec() {
+        describe("Authorizer") {
+            var sut: Authorizer!
+            var loginService: LoginServiceSpy!
+            var keychain: KeychainSpy!
+            var cancellables: Set<AnyCancellable>!
+            
+            beforeEach {
+                loginService = .init()
+                keychain = .init()
+                sut = .init(
+                    loginService: loginService,
+                    keychain: keychain
+                )
+                cancellables = .init()
+            }
+            
+            afterEach {
+                cancellables = nil
+                keychain = nil
+                loginService = nil
+                sut = nil
+            }
+            
+            context("given there is no stored authorization") {
+                var expectedEmittedValue: Bool?
+                
+                context("when restoring authorization") {
+                    beforeEach {
+                        sut.restoreAuthorizationStatus()
+                        expectedEmittedValue = try await currentSpec()?
+                            .firstElement(
+                                from: sut.isAuthorized,
+                                timeout: 1,
+                                afterAction: { sut.restoreAuthorizationStatus() },
+                                storingIn: &cancellables
+                            )
+                    }
+                    
+                    it("will look for stored authorization") {
+                        expect(keychain.readFromKeychainCapturedKeychainKey)
+                            .to(equal(.authorization))
+                    }
+                    
+                    it("will not restore authorization") {
+                        expect(expectedEmittedValue)
+                            .to(beFalse())
+                    }
+                }
+            }
+            
+            context("given there is a stored authorization") {
+                var emittedAuthorizationStatus: Bool?
+                
+                context("when restoring authorization") {
+                    beforeEach {
+                        keychain.store_authorization(
+                            .init(token: "stored_authorization")
+                        )
+                        sut.restoreAuthorizationStatus()
+                        emittedAuthorizationStatus = try await currentSpec()?
+                            .firstElement(
+                                from: sut.isAuthorized,
+                                timeout: 1,
+                                afterAction: { sut.restoreAuthorizationStatus() },
+                                storingIn: &cancellables
+                            )
+                    }
+                    
+                    it("will look for stored authorization") {
+                        expect(keychain.readFromKeychainCapturedKeychainKey)
+                            .to(equal(.authorization))
+                    }
+                    
+                    it("will restore authorization") {
+                        expect(emittedAuthorizationStatus)
+                            .to(beTrue())
+                    }
+                }
+            }
+            
+            context("when logging in") {
+                let expectedUsername = "test_user"
+                let expectedPassword = "test_password"
+                let expectedAuthorization = Authorization.init(token: "test_token")
+                var emittedAuthorizationStatus: Bool?
+                
+                beforeEach {
+                    loginService.logInWithReturnValue = expectedAuthorization
+                    try? await sut.logInWith(
+                        username: expectedUsername,
+                        password: expectedPassword
+                    )
+                    emittedAuthorizationStatus = try await currentSpec()?
+                        .firstElement(
+                            from: sut.isAuthorized,
+                            timeout: 1,
+                            afterAction: { sut.restoreAuthorizationStatus() },
+                            storingIn: &cancellables
+                        )
+                }
+                
+                it("will use provided username") {
+                    expect(loginService.logInWithCapturedUsername)
+                        .to(equal(expectedUsername))
+                }
+                
+                it("will use provided password") {
+                    expect(loginService.logInWithCapturedPassword)
+                        .to(equal(expectedPassword))
+                }
+                
+                it("will store the received authorization") {
+                    expect(keychain.saveInKeychainCapturedValue as? Authorization)
+                        .to(equal(expectedAuthorization))
+                }
+                
+                it("will store the received authorization with the correct key") {
+                    expect(keychain.saveInKeychainCapturedKeychainKey)
+                        .to(equal(.authorization))
+                }
+                
+                it("will update the authorization status correctly") {
+                    expect(emittedAuthorizationStatus)
+                        .to(beTrue())
+                }
+            }
+            
+            context("when logging out") {
+                var emittedAuthorizationStatus: Bool?
+                
+                beforeEach {
+                    sut.logOut()
+                    emittedAuthorizationStatus = try await currentSpec()?
+                        .firstElement(
+                            from: sut.isAuthorized,
+                            timeout: 1,
+                            afterAction: { sut.restoreAuthorizationStatus() },
+                            storingIn: &cancellables
+                        )
+                }
+                
+                it("will clear authorization in the keychain") {
+                    expect(keychain.clearCapturedKeychainKey)
+                        .to(equal(.authorization))
+                }
+                
+                it("will update the authorization status correctly") {
+                    expect(emittedAuthorizationStatus)
+                        .to(beFalse())
+                }
+            }
+        }
+    }
+}
+
+private final class LoginServiceSpy: LoginServing {
+    var logInWithCapturedUsername: String?
+    var logInWithCapturedPassword: String?
+    var logInWithReturnValue: Authorization!
+    func logInWith(
+        username: String,
+        password: String
+    ) async throws -> Authorization {
+        logInWithCapturedUsername = username
+        logInWithCapturedPassword = password
+        return logInWithReturnValue
+    }
+}
+
+private final class KeychainSpy: KeychainStoring {
+    var saveInKeychainCapturedValue: Encodable?
+    var saveInKeychainCapturedKeychainKey: KeychainKey?
+    func saveInKeychain<T: Encodable>(
+        _ item: T,
+        keychainKey: KeychainKey
+    ) throws {
+        saveInKeychainCapturedValue = item
+        saveInKeychainCapturedKeychainKey = keychainKey
+    }
+    
+    var readFromKeychainThrowableError: Error?
+    var readFromKeychainCallsCount: Int = 0
+    var readFromKeychainCapturedKeychainKey: KeychainKey?
+    func readFromKeychain<T: Decodable>(
+        keychainKey: KeychainKey
+    ) throws -> T? {
+        readFromKeychainCallsCount += 1
+        readFromKeychainCapturedKeychainKey = keychainKey
+        if let readFromKeychainThrowableError {
+            throw readFromKeychainThrowableError
+        }
+        guard let data = testAuthorizationData else { return nil }
+        let decoder = JSONDecoder()
+        return try decoder.decode(T.self, from: data)
+    }
+    
+    private var testAuthorizationData: Data?
+    func store_authorization(_ authorization: Authorization?) {
+        testAuthorizationData = try! JSONEncoder().encode(authorization)
+    }
+    
+    var clearCallsCount = 0
+    var clearCapturedKeychainKey: KeychainKey?
+    func clear(_ keychainKey: KeychainKey) {
+        clearCallsCount += 1
+        clearCapturedKeychainKey = keychainKey
+    }
+}
+
+func matchByDescription<T>(_ expectedValue: T?) -> Matcher<T> {
+    return Matcher.define { actualExpression, message in
+        let receivedValue = try actualExpression.evaluate()
+        switch (receivedValue, expectedValue) {
+        case let (receivedValue?, expectedValue?):
+            let receivedValueString = String(describing: receivedValue)
+            let expectedValueString = String(describing: expectedValue)
+            return MatcherResult(
+                bool: receivedValueString == expectedValueString,
+                message: ExpectationMessage.expectedCustomValueTo(expectedValueString, actual: receivedValueString)
+            )
+        case let (nil, expectedValue?):
+            let message = ExpectationMessage.expectedCustomValueTo("equal <\(expectedValue)>", actual: "nil")
+            return MatcherResult(status: .fail, message: message)
+        case (_?, nil):
+            return MatcherResult(status: .fail, message: ExpectationMessage.fail("").appendedBeNilHint())
+        case (nil, nil):
+            return MatcherResult(status: .matches, message: message)
+        }
+    }
+}

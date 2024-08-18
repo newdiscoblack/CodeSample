@@ -15,7 +15,7 @@ protocol KeychainStoring {
     func readFromKeychain<T: Decodable>(
         keychainKey: KeychainKey
     ) throws -> T?
-    func clear(_ serviceIdentifier: KeychainKey)
+    func clear(_ keychainKey: KeychainKey)
 }
 
 enum KeychainKey: String {

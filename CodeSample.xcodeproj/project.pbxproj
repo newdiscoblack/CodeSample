@@ -40,6 +40,8 @@
 		E79FA8D02C724C2700596DB1 /* RequestBuilder_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FA8CF2C724C2700596DB1 /* RequestBuilder_tests.swift */; };
 		E79FA8D32C72654B00596DB1 /* ResourceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FA8D22C72654B00596DB1 /* ResourceSpy.swift */; };
 		E79FA8D52C72843800596DB1 /* Data+fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FA8D42C72843800596DB1 /* Data+fixture.swift */; };
+		E79FA8D72C72885400596DB1 /* Authorizer_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FA8D62C72885400596DB1 /* Authorizer_tests.swift */; };
+		E79FA8DA2C728D4100596DB1 /* XCTestCase+firstElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FA8D92C728D4100596DB1 /* XCTestCase+firstElement.swift */; };
 		E7FDA1302C6D0E4C006E67F1 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA12F2C6D0E4C006E67F1 /* NetworkError.swift */; };
 		E7FDA1332C6D1554006E67F1 /* ObtainAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1322C6D1554006E67F1 /* ObtainAuthorization.swift */; };
 		E7FDA1382C6D18A5006E67F1 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1372C6D18A5006E67F1 /* RootView.swift */; };
@@ -51,7 +53,6 @@
 		E7FDA1462C6E7871006E67F1 /* ServersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1452C6E7871006E67F1 /* ServersView.swift */; };
 		E7FDA1482C6E7897006E67F1 /* ViewFactory+buildServersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1472C6E7897006E67F1 /* ViewFactory+buildServersView.swift */; };
 		E7FDA14C2C6E791B006E67F1 /* ServersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA14B2C6E791B006E67F1 /* ServersInteractor.swift */; };
-		E7FDA1522C6E7BA5006E67F1 /* LoginCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1512C6E7BA5006E67F1 /* LoginCoordinating.swift */; };
 		E7FDA1592C6F4C44006E67F1 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1582C6F4C44006E67F1 /* ErrorPresenter.swift */; };
 		E7FDA15B2C6F513B006E67F1 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA15A2C6F513B006E67F1 /* ErrorView.swift */; };
 		E7FDA15D2C6F514E006E67F1 /* View+onErrorReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA15C2C6F514E006E67F1 /* View+onErrorReceived.swift */; };
@@ -101,6 +102,8 @@
 		E79FA8CF2C724C2700596DB1 /* RequestBuilder_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder_tests.swift; sourceTree = "<group>"; };
 		E79FA8D22C72654B00596DB1 /* ResourceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceSpy.swift; sourceTree = "<group>"; };
 		E79FA8D42C72843800596DB1 /* Data+fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+fixture.swift"; sourceTree = "<group>"; };
+		E79FA8D62C72885400596DB1 /* Authorizer_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorizer_tests.swift; sourceTree = "<group>"; };
+		E79FA8D92C728D4100596DB1 /* XCTestCase+firstElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+firstElement.swift"; sourceTree = "<group>"; };
 		E7FDA12F2C6D0E4C006E67F1 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		E7FDA1322C6D1554006E67F1 /* ObtainAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainAuthorization.swift; sourceTree = "<group>"; };
 		E7FDA1372C6D18A5006E67F1 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -112,7 +115,6 @@
 		E7FDA1452C6E7871006E67F1 /* ServersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersView.swift; sourceTree = "<group>"; };
 		E7FDA1472C6E7897006E67F1 /* ViewFactory+buildServersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewFactory+buildServersView.swift"; sourceTree = "<group>"; };
 		E7FDA14B2C6E791B006E67F1 /* ServersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersInteractor.swift; sourceTree = "<group>"; };
-		E7FDA1512C6E7BA5006E67F1 /* LoginCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinating.swift; sourceTree = "<group>"; };
 		E7FDA1582C6F4C44006E67F1 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		E7FDA15A2C6F513B006E67F1 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E7FDA15C2C6F514E006E67F1 /* View+onErrorReceived.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+onErrorReceived.swift"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				E7FDA1402C6E3EFE006E67F1 /* Authorizer.swift */,
+				E79FA8D62C72885400596DB1 /* Authorizer_tests.swift */,
 				E77CCDBF2C6CB3D700CF764E /* AppDependencies.swift */,
 				E77CCDC12C6CB3E700CF764E /* ViewFactory.swift */,
 				E7FDA1422C6E4692006E67F1 /* LoginServing.swift */,
@@ -255,7 +258,6 @@
 			children = (
 				E77CCDC32C6CB46B00CF764E /* Coordinator.swift */,
 				E77CCDC52C6CB48E00CF764E /* RootCoordinator.swift */,
-				E7FDA1512C6E7BA5006E67F1 /* LoginCoordinating.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -275,18 +277,27 @@
 		E79FA8B92C6F8EDA00596DB1 /* CodeSampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				E79FA8D12C72653900596DB1 /* TestCommons */,
+				E79FA8D82C728D2E00596DB1 /* Extensions */,
+				E79FA8D12C72653900596DB1 /* Commons */,
 			);
 			path = CodeSampleTests;
 			sourceTree = "<group>";
 		};
-		E79FA8D12C72653900596DB1 /* TestCommons */ = {
+		E79FA8D12C72653900596DB1 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
 				E79FA8D22C72654B00596DB1 /* ResourceSpy.swift */,
 				E79FA8D42C72843800596DB1 /* Data+fixture.swift */,
 			);
-			path = TestCommons;
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		E79FA8D82C728D2E00596DB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E79FA8D92C728D4100596DB1 /* XCTestCase+firstElement.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E7FDA1362C6D189D006E67F1 /* Root */ = {
@@ -449,7 +460,6 @@
 				E70EA9812C6CEA6100D25AFC /* RequestBuilder.swift in Sources */,
 				E701697E2C6F6B7600C28B7A /* FetchServersList.swift in Sources */,
 				E7FDA1592C6F4C44006E67F1 /* ErrorPresenter.swift in Sources */,
-				E7FDA1522C6E7BA5006E67F1 /* LoginCoordinating.swift in Sources */,
 				E70EA97D2C6CE86B00D25AFC /* Resource.swift in Sources */,
 				E70EA9772C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift in Sources */,
 				E77CCDCA2C6CB8E700CF764E /* AppDelegate.swift in Sources */,
@@ -488,9 +498,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E79FA8DA2C728D4100596DB1 /* XCTestCase+firstElement.swift in Sources */,
 				E79FA8CE2C6F90A200596DB1 /* NetworkClient_tests.swift in Sources */,
 				E79FA8D52C72843800596DB1 /* Data+fixture.swift in Sources */,
 				E79FA8D02C724C2700596DB1 /* RequestBuilder_tests.swift in Sources */,
+				E79FA8D72C72885400596DB1 /* Authorizer_tests.swift in Sources */,
 				E79FA8D32C72654B00596DB1 /* ResourceSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

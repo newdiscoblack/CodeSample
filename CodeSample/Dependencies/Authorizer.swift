@@ -10,6 +10,7 @@ import Foundation
 
 protocol Authorizing {
     var isAuthorized: AnyPublisher<Bool, Never> { get }
+    func restoreAuthorizationStatus()
     func logInWith(
         username: String,
         password: String
@@ -32,13 +33,13 @@ final class Authorizer: Authorizing {
     ) {
         self.loginService = loginService
         self.keychain = keychain
-        restoreAuthorizationStatus()
     }
     
     func logInWith(
         username: String,
         password: String
     ) async throws {
+        //TODO: error when no auth?
         let authorization = try await loginService.logInWith(
             username: username,
             password: password
@@ -47,6 +48,7 @@ final class Authorizer: Authorizing {
             authorization,
             keychainKey: .authorization
         )
+        isAuthorizedSubject.send(true)
     }
     
     func logOut() {
@@ -54,14 +56,14 @@ final class Authorizer: Authorizing {
         isAuthorizedSubject.send(false)
     }
     
-    private func restoreAuthorizationStatus() {
+    func restoreAuthorizationStatus() {
         do {
             let authorization: Authorization? = try keychain.readFromKeychain(
                 keychainKey: .authorization
             )
             isAuthorizedSubject.send(authorization != nil)
         } catch {
-            print("didRestoreAuthorization error: ", error)
+            print("restoreAuthorizationStatus error: ", error)
         }
     }
 }
