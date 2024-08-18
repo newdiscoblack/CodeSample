@@ -11,6 +11,9 @@ protocol NetworkHandling {
     func request<R: Resource, APIModel: Decodable>(
         resource: R
     ) async throws -> APIModel
+    func requestVoid<R: Resource>(
+        resource: R
+    ) async throws
 }
 
 final class NetworkClient: NetworkHandling {
@@ -34,6 +37,10 @@ final class NetworkClient: NetworkHandling {
     ) async throws -> APIModel {
         let data = try await requestData(resource: resource)
         return try decoder.decode(APIModel.self, from: data)
+    }
+    
+    func requestVoid<R: Resource>(resource: R) async throws {
+        try await requestData(resource: resource)
     }
     
     @discardableResult

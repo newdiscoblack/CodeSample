@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum NetworkError: LocalizedError {
+enum NetworkError: LocalizedError, Equatable {
     case unauthorizedRequest
     case invalidResponse
-    case httpError(code: Int) //TODO: Be more specific
+    case httpError(code: Int)
     
     var errorDescription: String? {
         switch self {
