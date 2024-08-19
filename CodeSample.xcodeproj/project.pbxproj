@@ -42,6 +42,7 @@
 		E79FA8D52C72843800596DB1 /* Data+fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FA8D42C72843800596DB1 /* Data+fixture.swift */; };
 		E79FA8D72C72885400596DB1 /* Authorizer_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FA8D62C72885400596DB1 /* Authorizer_tests.swift */; };
 		E79FA8DA2C728D4100596DB1 /* XCTestCase+firstElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FA8D92C728D4100596DB1 /* XCTestCase+firstElement.swift */; };
+		E79FA8DC2C73900800596DB1 /* LoginInteractor_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FA8DB2C73900800596DB1 /* LoginInteractor_tests.swift */; };
 		E7FDA1302C6D0E4C006E67F1 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA12F2C6D0E4C006E67F1 /* NetworkError.swift */; };
 		E7FDA1332C6D1554006E67F1 /* ObtainAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1322C6D1554006E67F1 /* ObtainAuthorization.swift */; };
 		E7FDA1382C6D18A5006E67F1 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FDA1372C6D18A5006E67F1 /* RootView.swift */; };
@@ -104,6 +105,7 @@
 		E79FA8D42C72843800596DB1 /* Data+fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+fixture.swift"; sourceTree = "<group>"; };
 		E79FA8D62C72885400596DB1 /* Authorizer_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorizer_tests.swift; sourceTree = "<group>"; };
 		E79FA8D92C728D4100596DB1 /* XCTestCase+firstElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+firstElement.swift"; sourceTree = "<group>"; };
+		E79FA8DB2C73900800596DB1 /* LoginInteractor_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor_tests.swift; sourceTree = "<group>"; };
 		E7FDA12F2C6D0E4C006E67F1 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		E7FDA1322C6D1554006E67F1 /* ObtainAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainAuthorization.swift; sourceTree = "<group>"; };
 		E7FDA1372C6D18A5006E67F1 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				E77CCDAE2C6CB35800CF764E /* LoginView.swift */,
 				E77CCDCC2C6CDB4000CF764E /* LoginViewModel.swift */,
 				E77CCDCE2C6CDCFD00CF764E /* LoginInteractor.swift */,
+				E79FA8DB2C73900800596DB1 /* LoginInteractor_tests.swift */,
 				E77CCDD02C6CDEEF00CF764E /* AsyncButton.swift */,
 				E70EA9762C6CE58D00D25AFC /* ViewFactory+buildLoginView.swift */,
 			);
@@ -501,6 +504,7 @@
 				E79FA8DA2C728D4100596DB1 /* XCTestCase+firstElement.swift in Sources */,
 				E79FA8CE2C6F90A200596DB1 /* NetworkClient_tests.swift in Sources */,
 				E79FA8D52C72843800596DB1 /* Data+fixture.swift in Sources */,
+				E79FA8DC2C73900800596DB1 /* LoginInteractor_tests.swift in Sources */,
 				E79FA8D02C724C2700596DB1 /* RequestBuilder_tests.swift in Sources */,
 				E79FA8D72C72885400596DB1 /* Authorizer_tests.swift in Sources */,
 				E79FA8D32C72654B00596DB1 /* ResourceSpy.swift in Sources */,
