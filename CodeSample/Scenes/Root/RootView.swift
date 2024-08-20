@@ -18,11 +18,7 @@ struct RootView: View {
     var body: some View {
         VStack {
             Spacer()
-            HStack(alignment: .bottom,spacing: 4) {
-                Image("testio")
-                Image("testio_dot")
-            }
-            .frame(width: 186, height: 48)
+            testioHeaderView
             ProgressView()
                 .tint(.gray)
             Spacer()
@@ -31,5 +27,13 @@ struct RootView: View {
         .onAppear {
             interactor.onAppear()
         }
+    }
+    
+    private var testioHeaderView: some View {
+        HStack(alignment: .bottom, spacing: 4) {
+            Image("testio")
+            Image("testio_dot")
+        }
+        .frame(width: 186, height: 48)
     }
 }

@@ -12,7 +12,8 @@ extension ViewFactory {
         let viewModel = ServersViewModel()
         let interactor = ServersInteractor(
             authorizer: appDependencies.authorizer,
-            serversListService: appDependencies.networkClient,
+            storedServersListService: appDependencies.appDatabaseService,
+            remoteServersListService: appDependencies.networkClient,
             viewModel: viewModel
         )
         ServersView(

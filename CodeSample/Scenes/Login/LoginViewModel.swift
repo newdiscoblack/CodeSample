@@ -5,11 +5,11 @@
 //  Created by Kacper Jagiełło on 14/08/2024.
 //
 
-import SwiftUI
+import Foundation
 
-final class LoginViewModel: ObservableObject {
-    //TODO: Remove credentials
-    @Published var username: String = "tesonet"
-    @Published var password: String = "partyanimal"
-    @Published var error: Error? = nil
+@Observable
+final class LoginViewModel {
+    var username: String = ""
+    var password: String = ""
+    var error: Error? = nil
 }

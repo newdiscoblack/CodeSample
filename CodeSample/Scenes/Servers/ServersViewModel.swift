@@ -7,7 +7,10 @@
 
 import Foundation
 
-final class ServersViewModel: ObservableObject {
-    @Published var servers: [Server] = []
-    @Published var shouldShowFilters: Bool = false
+@Observable
+final class ServersViewModel {
+    var servers: [Server] = []
+    var shouldShowFilters: Bool = false
+    var selectedSortingMethod: Sort?
+    var error: Error?
 }

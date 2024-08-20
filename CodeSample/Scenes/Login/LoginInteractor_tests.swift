@@ -46,13 +46,13 @@ class LoginInteractorSpec: AsyncSpec {
                     }
                     
                     it("will log in using correct username") {
-                        expect(authorizer.logInWithCapturedUsername)
-                            .to(equal(expectedUsername))
+                        await expect(authorizer.logInWithCapturedUsername)
+                            .toEventually(equal(expectedUsername))
                     }
                     
                     it("will log in using correct password") {
-                        expect(authorizer.logInWithCapturedPassword)
-                            .to(equal(expectedPassword))
+                        await expect(authorizer.logInWithCapturedPassword)
+                            .toEventually(equal(expectedPassword))
                     }
                 }
             }
@@ -67,71 +67,12 @@ class LoginInteractorSpec: AsyncSpec {
                         await sut.logIn()
                     }
                     
-                    it("will present an error") {
-                        expect(viewModel.error)
-                            .to(matchByDescription(expectedError))
+                    it("will present the error") {
+                        await expect(viewModel.error)
+                            .toEventually(matchByDescription(expectedError))
                     }
                 }
             }
-        }
-    }
-}
-
-private final class AuthorizerSpy: Authorizing {
-    var isAuthorizedSubject = CurrentValueSubject<Bool, Never>(false)
-    var isAuthorized: AnyPublisher<Bool, Never> {
-        isAuthorizedSubject.eraseToAnyPublisher()
-    }
-    
-    var restoreAuthorizationStatusCallsCount = 0
-    func restoreAuthorizationStatus() {
-        restoreAuthorizationStatusCallsCount += 1
-    }
-    
-    var logInWithCapturedUsername: String?
-    var logInWithCapturedPassword: String?
-    var logInWithThrowableError: Error?
-    func logInWith(
-        username: String,
-        password: String
-    ) async throws {
-        logInWithCapturedUsername = username
-        logInWithCapturedPassword = password
-        if let logInWithThrowableError {
-            throw logInWithThrowableError
-        }
-    }
-    
-    var logOutCallsCount = 0
-    func logOut() {
-        logOutCallsCount += 1
-    }
-}
-
-private func matchByDescription<T>(_ expectedValue: T?) -> Matcher<T> {
-    return Matcher.define { actualExpression, message in
-        let receivedValue = try actualExpression.evaluate()
-        switch (receivedValue, expectedValue) {
-        case let (receivedValue?, expectedValue?):
-            let receivedValueString = String(describing: receivedValue)
-            let expectedValueString = String(describing: expectedValue)
-            return MatcherResult(
-                bool: receivedValueString == expectedValueString,
-                message: ExpectationMessage.expectedCustomValueTo(
-                    expectedValueString,
-                    actual: receivedValueString
-                )
-            )
-        case let (nil, expectedValue?):
-            let message = ExpectationMessage.expectedCustomValueTo(
-                "equal <\(expectedValue)>",
-                actual: "nil"
-            )
-            return MatcherResult(status: .fail, message: message)
-        case (_?, nil):
-            return MatcherResult(status: .fail, message: ExpectationMessage.fail("").appendedBeNilHint())
-        case (nil, nil):
-            return MatcherResult(status: .matches, message: message)
         }
     }
 }

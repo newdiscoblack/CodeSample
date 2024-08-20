@@ -39,7 +39,6 @@ final class Authorizer: Authorizing {
         username: String,
         password: String
     ) async throws {
-        //TODO: error when no auth?
         let authorization = try await loginService.logInWith(
             username: username,
             password: password

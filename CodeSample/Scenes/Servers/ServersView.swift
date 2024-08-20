@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ServersView: View {
-    @ObservedObject private var viewModel: ServersViewModel
+    @Bindable private var viewModel: ServersViewModel
     private let interactor: ServersInteracting
     
     init(
@@ -23,22 +23,15 @@ struct ServersView: View {
         NavigationStack {
             List {
                 Section {
-                    ForEach(viewModel.servers, id: \.id) { server in
-                        HStack {
-                            Text(server.name)
-                            Spacer()
-                            Text("\(server.distance) km")
-                        }
+                    ForEach(viewModel.servers, id: \.id) {
+                        ServerCell(server: $0)
                     }
                 } header: {
-                    HStack {
-                        Text("SERVER")
-                            .font(.system(size: 12))
-                        Spacer()
-                        Text("DISTANCE")
-                            .font(.system(size: 12))
-                    }
+                    serversListHeader
                 }
+            }
+            .refreshable {
+                interactor.refreshServersList()
             }
             .confirmationDialog(
                 "",
@@ -58,26 +51,57 @@ struct ServersView: View {
                     Button {
                         interactor.showFilters()
                     } label: {
-                        HStack(spacing: 10) {
-                            Image("sort_icon")
-                            Text("Filter")
-                        }
+                        showFiltersIcon
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         interactor.logOut()
                     } label: {
-                        HStack(spacing: 10) {
-                            Text("Logout")
-                            Image("logout_icon")
-                        }
+                        logOutIcon
                     }
                 }
             }
         }
         .onAppear {
             interactor.populateServersList()
+        }
+        .onErrorReceived($viewModel.error)
+    }
+    
+    private var showFiltersIcon: some View {
+        HStack(spacing: 10) {
+            Image("sort_icon")
+            Text("Filter")
+        }
+    }
+    
+    private var logOutIcon: some View {
+        HStack(spacing: 10) {
+            Text("Logout")
+            Image("logout_icon")
+        }
+    }
+    
+    private var serversListHeader: some View {
+        HStack {
+            Text("SERVER")
+                .font(.system(size: 12))
+            Spacer()
+            Text("DISTANCE")
+                .font(.system(size: 12))
+        }
+    }
+}
+
+private struct ServerCell: View {
+    let server: Server
+    
+    var body: some View {
+        HStack {
+            Text(server.name)
+            Spacer()
+            Text("\(server.distance) km")
         }
     }
 }
@@ -91,6 +115,7 @@ struct ServersView: View {
 
 struct ServersInteractorMock: ServersInteracting {
     func populateServersList() {}
+    func refreshServersList() {}
     func showFilters() {}
     func sort(_ type: Sort) {}
     func logOut() {}

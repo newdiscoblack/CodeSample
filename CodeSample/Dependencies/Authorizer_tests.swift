@@ -58,8 +58,8 @@ class AuthorizerSpec: AsyncSpec {
                     }
                     
                     it("will not restore authorization") {
-                        expect(expectedEmittedValue)
-                            .to(beFalse())
+                        await expect(expectedEmittedValue)
+                            .toEventually(beFalse())
                     }
                 }
             }
@@ -88,8 +88,8 @@ class AuthorizerSpec: AsyncSpec {
                     }
                     
                     it("will restore authorization") {
-                        expect(emittedAuthorizationStatus)
-                            .to(beTrue())
+                        await expect(emittedAuthorizationStatus)
+                            .toEventually(beTrue())
                     }
                 }
             }
@@ -116,28 +116,28 @@ class AuthorizerSpec: AsyncSpec {
                 }
                 
                 it("will use provided username") {
-                    expect(loginService.logInWithCapturedUsername)
-                        .to(equal(expectedUsername))
+                    await expect(loginService.logInWithCapturedUsername)
+                        .toEventually(equal(expectedUsername))
                 }
                 
                 it("will use provided password") {
-                    expect(loginService.logInWithCapturedPassword)
-                        .to(equal(expectedPassword))
+                    await expect(loginService.logInWithCapturedPassword)
+                        .toEventually(equal(expectedPassword))
                 }
                 
                 it("will store the received authorization") {
-                    expect(keychain.saveInKeychainCapturedValue as? Authorization)
-                        .to(equal(expectedAuthorization))
+                    await expect(keychain.saveInKeychainCapturedValue as? Authorization)
+                        .toEventually(equal(expectedAuthorization))
                 }
                 
                 it("will store the received authorization with the correct key") {
-                    expect(keychain.saveInKeychainCapturedKeychainKey)
-                        .to(equal(.authorization))
+                    await expect(keychain.saveInKeychainCapturedKeychainKey)
+                        .toEventually(equal(.authorization))
                 }
                 
                 it("will update the authorization status correctly") {
-                    expect(emittedAuthorizationStatus)
-                        .to(beTrue())
+                    await expect(emittedAuthorizationStatus)
+                        .toEventually(beTrue())
                 }
             }
             
@@ -161,8 +161,8 @@ class AuthorizerSpec: AsyncSpec {
                 }
                 
                 it("will update the authorization status correctly") {
-                    expect(emittedAuthorizationStatus)
-                        .to(beFalse())
+                    await expect(emittedAuthorizationStatus)
+                        .toEventually(beFalse())
                 }
             }
         }
@@ -194,7 +194,6 @@ private final class KeychainSpy: KeychainStoring {
         saveInKeychainCapturedKeychainKey = keychainKey
     }
     
-    var readFromKeychainThrowableError: Error?
     var readFromKeychainCallsCount: Int = 0
     var readFromKeychainCapturedKeychainKey: KeychainKey?
     func readFromKeychain<T: Decodable>(
@@ -202,9 +201,6 @@ private final class KeychainSpy: KeychainStoring {
     ) throws -> T? {
         readFromKeychainCallsCount += 1
         readFromKeychainCapturedKeychainKey = keychainKey
-        if let readFromKeychainThrowableError {
-            throw readFromKeychainThrowableError
-        }
         guard let data = testAuthorizationData else { return nil }
         let decoder = JSONDecoder()
         return try decoder.decode(T.self, from: data)

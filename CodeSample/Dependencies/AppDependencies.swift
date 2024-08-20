@@ -6,7 +6,8 @@
 //
 
 final class AppDependencies {
-    lazy var keychain = Keychain()
+    let appDatabaseService = AppDatabaseService()
+    let keychain = Keychain()
     lazy var requestBuilder = RequestBuilder(
         host: "https://playground.nordsec.com",
         authorizationProvider: keychain

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject private var viewModel: LoginViewModel
+    @Bindable private var viewModel: LoginViewModel
     private let interactor: LoginInteracting
     
     init(
@@ -41,7 +41,7 @@ struct LoginView: View {
     }
     
     private var testioHeaderView: some View {
-        HStack(alignment: .bottom,spacing: 4) {
+        HStack(alignment: .bottom, spacing: 4) {
             Image("testio")
             Image("testio_dot")
         }
@@ -90,6 +90,7 @@ private struct LoginTextField: View {
                             Color.loginTextfieldPlaceholderTextColor
                         )
                 }
+                .textInputAutocapitalization(.never)
             case .password:
                 Image("lock_icon")
                     .frame(width: 16, height: 16)
@@ -100,6 +101,7 @@ private struct LoginTextField: View {
                             Color.loginTextfieldPlaceholderTextColor
                         )
                 }
+                .textInputAutocapitalization(.never)
             }
         }
         .frame(height: 40)
