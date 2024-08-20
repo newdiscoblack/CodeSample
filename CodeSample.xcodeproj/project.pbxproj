@@ -343,8 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				E7FDA13E2C6E3EEA006E67F1 /* Authorization.swift */,
-				E70169792C6F6B5300C28B7A /* ApiServer.swift */,
 				E79FA8DD2C73ABEC00596DB1 /* Server.swift */,
+				E70169792C6F6B5300C28B7A /* ApiServer.swift */,
 				E79FA8DF2C73ABFA00596DB1 /* StorableServer.swift */,
 			);
 			path = Models;

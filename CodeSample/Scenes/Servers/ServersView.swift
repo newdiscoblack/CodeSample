@@ -95,7 +95,7 @@ struct ServersView: View {
 }
 
 private struct ServerCell: View {
-    let server: Server
+    let server: any Server
     
     var body: some View {
         HStack {
@@ -113,7 +113,7 @@ private struct ServerCell: View {
     )
 }
 
-struct ServersInteractorMock: ServersInteracting {
+private struct ServersInteractorMock: ServersInteracting {
     func populateServersList() {}
     func refreshServersList() {}
     func showFilters() {}

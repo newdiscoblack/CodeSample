@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Server {
+protocol Server: Identifiable, Equatable {
     var id: UUID { get }
     var name: String { get }
     var distance: Int { get }

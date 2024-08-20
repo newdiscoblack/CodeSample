@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ApiServer: Decodable, Identifiable, Equatable, Server {
+struct ApiServer: Decodable, Server {
     var id: UUID { UUID() }
     let name: String
     let distance: Int

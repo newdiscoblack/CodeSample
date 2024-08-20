@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class StorableServer: Identifiable, Equatable, Server {
+final class StorableServer: Server {
     @Attribute(.unique) var id: UUID
     let name: String
     let distance: Int
@@ -24,7 +24,7 @@ final class StorableServer: Identifiable, Equatable, Server {
         self.distance = distance
     }
     
-    convenience init(server: Server) {
+    convenience init(server: any Server) {
         self.init(
             id: server.id,
             name: server.name,

@@ -5,6 +5,7 @@
 //  Created by Kacper Jagiełło on 14/08/2024.
 //
 
+import Combine
 import SwiftUI
 
 struct LoginView: View {
@@ -112,12 +113,24 @@ private struct LoginTextField: View {
     }
 }
 
-//#Preview {
-//    LoginView(
-//        viewModel: LoginViewModel(),
-//        interactor: LoginInteractor(viewModel: LoginViewModel())
-//    )
-//}
+#Preview {
+    LoginView(
+        viewModel: LoginViewModel(),
+        interactor: LoginInteractor(
+            authorizer: AuthorizerMock(),
+            viewModel: LoginViewModel()
+        )
+    )
+}
+
+private struct AuthorizerMock: Authorizing {
+    var isAuthorized: AnyPublisher<Bool, Never> {
+        Just(true).eraseToAnyPublisher()
+    }
+    func restoreAuthorizationStatus() {}
+    func logInWith(username: String, password: String) async throws {}
+    func logOut() {}
+}
 
 private extension Color {
     static var loginTextFieldBackgroundColor: Color {

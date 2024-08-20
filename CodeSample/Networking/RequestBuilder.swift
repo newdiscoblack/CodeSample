@@ -45,7 +45,10 @@ final class RequestBuilder: RequestBuilding {
             request.authorize(with: authorizationToken)
         }
         if resource.body != nil {
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue(
+                "application/json",
+                forHTTPHeaderField: "Content-Type"
+            )
         }
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         print(request.cURL())
@@ -53,7 +56,9 @@ final class RequestBuilder: RequestBuilding {
     }
     
     private func buildUrl<R: Resource>(for resource: R) -> URL? {
-        guard var urlComponents = URLComponents(string: host) else { return nil }
+        guard var urlComponents = URLComponents(string: host) else {
+            return nil
+        }
         urlComponents.path.append("/\(resource.path)")
         let url = urlComponents.url
         return url

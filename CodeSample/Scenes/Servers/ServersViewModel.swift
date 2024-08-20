@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 final class ServersViewModel {
-    var servers: [Server] = []
+    var servers: [any Server] = []
     var shouldShowFilters: Bool = false
     var selectedSortingMethod: Sort?
     var error: Error?

@@ -46,18 +46,18 @@ class RequestBuilderSpec: AsyncSpec {
                 }
                 
                 it("will build a valid url") {
-                    expect(expectedUrlRequest?.url?.absoluteString)
-                        .to(equal("https://fake.host/fake/path"))
+                    await expect(expectedUrlRequest?.url?.absoluteString)
+                        .toEventually(equal("https://fake.host/fake/path"))
                 }
                 
                 it("will set the correct http method") {
-                    expect(expectedUrlRequest?.httpMethod)
-                        .to(equal("GET"))
+                    await expect(expectedUrlRequest?.httpMethod)
+                        .toEventually(equal("GET"))
                 }
                 
                 it("will set the correct body") {
-                    expect(expectedUrlRequest?.httpBody)
-                        .to(beNil())
+                    await expect(expectedUrlRequest?.httpBody)
+                        .toEventually(beNil())
                 }
             }
             
@@ -79,13 +79,13 @@ class RequestBuilderSpec: AsyncSpec {
                 }
                 
                 it("will set the correct body") {
-                    expect(expectedUrlRequest?.httpBody)
-                        .to(equal(expectedBody))
+                    await expect(expectedUrlRequest?.httpBody)
+                        .toEventually(equal(expectedBody))
                 }
                 
                 it("will add the correct Content-Type header") {
-                    expect(expectedUrlRequest?.allHTTPHeaderFields!["Content-Type"])
-                        .to(equal("application/json"))
+                    await expect(expectedUrlRequest?.allHTTPHeaderFields!["Content-Type"])
+                        .toEventually(equal("application/json"))
                 }
             }
             
@@ -105,13 +105,13 @@ class RequestBuilderSpec: AsyncSpec {
                 }
                 
                 it("will not call authorization provider for authorization") {
-                    expect(authorizationProvider.getStandardAuthorizationTokenCallsCount)
-                        .to(equal(0))
+                    await expect(authorizationProvider.getStandardAuthorizationTokenCallsCount)
+                        .toEventually(equal(0))
                 }
                 
                 it("will not try to authorize the request") {
-                    expect(expectedUrlRequest?.allHTTPHeaderFields!["Authorization"])
-                        .to(beNil())
+                    await expect(expectedUrlRequest?.allHTTPHeaderFields!["Authorization"])
+                        .toEventually(beNil())
                 }
             }
             
@@ -132,13 +132,13 @@ class RequestBuilderSpec: AsyncSpec {
                 }
                 
                 it("will call authorization provider for authorization") {
-                    expect(authorizationProvider.getStandardAuthorizationTokenCallsCount)
-                        .to(equal(1))
+                    await expect(authorizationProvider.getStandardAuthorizationTokenCallsCount)
+                        .toEventually(equal(1))
                 }
                 
                 it("will authorize the request using the correct token") {
-                    expect(expectedUrlRequest?.allHTTPHeaderFields!["Authorization"])
-                        .to(equal("Bearer test_token"))
+                    await expect(expectedUrlRequest?.allHTTPHeaderFields!["Authorization"])
+                        .toEventually(equal("Bearer test_token"))
                 }
             }
         }

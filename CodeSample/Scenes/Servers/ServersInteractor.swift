@@ -80,13 +80,13 @@ final class ServersInteractor: ServersInteracting {
         authorizer.logOut()
     }
     
-    private func fetchStoredServersList() -> [Server]? {
+    private func fetchStoredServersList() -> [any Server]? {
         guard let storedServersList = try? storedServersListService
             .fetchServersList(), !storedServersList.isEmpty else { return nil }
         return storedServersList
     }
     
-    private func fetchRemoteServersList() async -> [Server]? {
+    private func fetchRemoteServersList() async -> [any Server]? {
         do {
             return try await remoteServersListService.fetchServersList()
         } catch {
@@ -95,7 +95,7 @@ final class ServersInteractor: ServersInteracting {
         }
     }
     
-    private func storeNewServersList(_ serversList: [Server]) {
+    private func storeNewServersList(_ serversList: [any Server]) {
         storedServersListService.storeNewServersList(
             serversList.map { StorableServer(server: $0) }
         )

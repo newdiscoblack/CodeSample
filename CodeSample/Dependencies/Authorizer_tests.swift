@@ -53,8 +53,8 @@ class AuthorizerSpec: AsyncSpec {
                     }
                     
                     it("will look for stored authorization") {
-                        expect(keychain.readFromKeychainCapturedKeychainKey)
-                            .to(equal(.authorization))
+                        await expect(keychain.readFromKeychainCapturedKeychainKey)
+                            .toEventually(equal(.authorization))
                     }
                     
                     it("will not restore authorization") {
@@ -83,8 +83,8 @@ class AuthorizerSpec: AsyncSpec {
                     }
                     
                     it("will look for stored authorization") {
-                        expect(keychain.readFromKeychainCapturedKeychainKey)
-                            .to(equal(.authorization))
+                        await expect(keychain.readFromKeychainCapturedKeychainKey)
+                            .toEventually(equal(.authorization))
                     }
                     
                     it("will restore authorization") {
@@ -156,8 +156,8 @@ class AuthorizerSpec: AsyncSpec {
                 }
                 
                 it("will clear authorization in the keychain") {
-                    expect(keychain.clearCapturedKeychainKey)
-                        .to(equal(.authorization))
+                    await expect(keychain.clearCapturedKeychainKey)
+                        .toEventually(equal(.authorization))
                 }
                 
                 it("will update the authorization status correctly") {

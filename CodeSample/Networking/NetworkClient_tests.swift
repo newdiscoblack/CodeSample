@@ -52,28 +52,28 @@ class NetworkClientSpec: AsyncSpec {
                 }
                 
                 it("will pass the correct path to the request builder") {
-                    expect(requestBuilder.capturedPath)
-                        .to(equal(resourceSpy.path))
+                    await expect(requestBuilder.capturedPath)
+                        .toEventually(equal(resourceSpy.path))
                 }
                 
                 it("will pass the correct http method to the request builder") {
-                    expect(requestBuilder.capturedHttpRequestMethod)
-                        .to(equal(resourceSpy.httpRequestMethod))
+                    await expect(requestBuilder.capturedHttpRequestMethod)
+                        .toEventually(equal(resourceSpy.httpRequestMethod))
                 }
                 
                 it("will pass the correct body to request builder") {
-                    expect(requestBuilder.capturedBody)
-                        .to(equal(resourceSpy.body))
+                    await expect(requestBuilder.capturedBody)
+                        .toEventually(equal(resourceSpy.body))
                 }
                 
                 it("will pass the correct authorization needs to the request builder") {
-                    expect(requestBuilder.capturedAuthorizationNeeds)
-                        .to(equal(resourceSpy.authorizationNeeds))
+                    await expect(requestBuilder.capturedAuthorizationNeeds)
+                        .toEventually(equal(resourceSpy.authorizationNeeds))
                 }
                 
                 it("will pass the correct url to the network session") {
-                    expect(networkSession.capturedRequest.url?.absoluteString)
-                        .to(equal("https://fake.host/fake_path"))
+                    await expect(networkSession.capturedRequest.url?.absoluteString)
+                        .toEventually(equal("https://fake.host/fake_path"))
                 }
             }
             
@@ -98,8 +98,8 @@ class NetworkClientSpec: AsyncSpec {
                 }
                 
                 it("will throw the invalid response error") {
-                    expect(capturedError as? NetworkError)
-                        .to(equal(NetworkError.invalidResponse))
+                    await expect(capturedError as? NetworkError)
+                        .toEventually(equal(NetworkError.invalidResponse))
                 }
             }
             
@@ -118,8 +118,8 @@ class NetworkClientSpec: AsyncSpec {
                         let receivedData: TestData = try await sut.request(
                             resource: resourceSpy
                         )
-                        expect(receivedData)
-                            .to(equal(expectedData))
+                        await expect(receivedData)
+                            .toEventually(equal(expectedData))
                     }
                 }
                 
@@ -139,8 +139,8 @@ class NetworkClientSpec: AsyncSpec {
                     }
                     
                     it("will throw the http error with correct status code") {
-                        expect(capturedError as? NetworkError)
-                            .to(equal(NetworkError.httpError(code: 422)))
+                        await expect(capturedError as? NetworkError)
+                            .toEventually(equal(NetworkError.httpError(code: 422)))
                     }
                 }
                 
@@ -160,8 +160,8 @@ class NetworkClientSpec: AsyncSpec {
                     }
                     
                     it("will throw the unauthorized request error") {
-                        expect(capturedError as? NetworkError)
-                            .to(equal(NetworkError.unauthorizedRequest))
+                        await expect(capturedError as? NetworkError)
+                            .toEventually(equal(NetworkError.unauthorizedRequest))
                     }
                 }
             }

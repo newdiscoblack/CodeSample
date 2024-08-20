@@ -260,7 +260,10 @@ class ServersInteractorSpec: AsyncSpec {
     }
 }
 
-func matchServers(_ expected: [Server], _ actual: [Server]) -> Bool {
+private func matchServers(
+    _ expected: [any Server],
+    _ actual: [any Server]
+) -> Bool {
     guard expected.count == actual.count else { return false }
     for (expectedServer, actualServer) in zip(expected, actual) {
         if expectedServer.name != actualServer.name || expectedServer.distance != actualServer.distance {
